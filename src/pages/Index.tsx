@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
+
 const Index = () => {
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -88,7 +89,7 @@ const Index = () => {
   }, {
     name: "Mike Johnson",
     role: "Lead Developer",
-    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(5).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg1KS5wbmciLCJpYXQiOjE3NDg0MjQ3NDcsImV4cCI6MTc3OTk2MDc0N30.S0wUJrfushiWuV4GCrJ3s6d3vLYDJqVW4Giso_tmaJA",
     email: "mike@codeagent.com"
   }, {
     name: "Emily Zhang",
@@ -601,4 +602,5 @@ Quality: Production-ready`}
       </footer>
     </div>;
 };
+
 export default Index;
