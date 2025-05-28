@@ -19,6 +19,8 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+  
+  // ... keep existing code (useCases array)
   const useCases = [
     {
       id: 1,
@@ -78,24 +80,25 @@ const Index = () => {
       codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
     }
   ];
+  
   const teamMembers = [{
     name: "He Zhang",
-    role: "Founder & CEO",
+    role: "AI Engineer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(1).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgxKS5wbmciLCJpYXQiOjE3NDg0MjQxOTcsImV4cCI6MTc3OTk2MDE5N30.1qRKu2akF6fRfkho3rwlA1evoLzxav33-B_f7eQVxPs",
     email: "alex@codeagent.com"
   }, {
     name: "Chenjian Liang",
-    role: "CTO",
+    role: "AI Engineer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
     email: "sarah@codeagent.com"
   }, {
     name: "Suki",
-    role: "Lead Developer",
+    role: "Product Manager",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(5).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg1KS5wbmciLCJpYXQiOjE3NDg0MjQ3NDcsImV4cCI6MTc3OTk2MDc0N30.S0wUJrfushiWuV4GCrJ3s6d3vLYDJqVW4Giso_tmaJA",
     email: "mike@codeagent.com"
   }, {
     name: "Tao Li",
-    role: "Product Designer",
+    role: "AI Engineer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(3).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgzKS5wbmciLCJpYXQiOjE3NDg0MjQ4OTQsImV4cCI6MTc3OTk2MDg5NH0.sSKCvaQXVNHz8wG-wdZvuy9XNw62IkIwwY1ktDw4xTs",
     email: "emily@codeagent.com"
   }, {
@@ -105,10 +108,12 @@ const Index = () => {
     email: "david@codeagent.com"
   }, {
     name: "Linjun",
-    role: "UX Researcher",
+    role: "Lead Developer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(6).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg2KS5wbmciLCJpYXQiOjE3NDg0MjUwMjksImV4cCI6MTc3OTk2MTAyOX0.oNHixoqzppvUQYkHJqT-h69qNhNY5rwDu5HA5rjttEU",
     email: "lisa@codeagent.com"
   }];
+  
+  // ... keep existing code (faqs array and all other component code)
   const faqs = [
     {
       question: "How accurate is the Figma to code conversion?",
@@ -130,6 +135,8 @@ const Index = () => {
       answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
     }
   ];
+  
+  // ... keep existing code (return JSX and all other component code)
   return <div className="min-h-screen bg-white relative">
       {/* Mouse follow glow effect */}
       <div className="fixed pointer-events-none z-10 w-96 h-96 rounded-full opacity-30 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 blur-3xl transition-all duration-300 ease-out" style={{
