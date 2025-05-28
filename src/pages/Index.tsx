@@ -19,63 +19,65 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-  const useCases = [{
-    id: 1,
-    title: "E-commerce Product Card",
-    description: "Convert product cards from Figma to React components",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
-  }, {
-    id: 2,
-    title: "Dashboard Layout",
-    description: "Transform complex dashboard designs into responsive layouts",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
-  }, {
-    id: 3,
-    title: "Mobile App Interface",
-    description: "Convert mobile designs to responsive web components",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
-  }, {
-    id: 4,
-    title: "Form Components",
-    description: "Generate form components with validation and styling",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
-  }, {
-    id: 5,
-    title: "Navigation Menu",
-    description: "Create responsive navigation from design mockups",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop"
-  }, {
-    id: 6,
-    title: "Hero Section",
-    description: "Transform landing page heroes into pixel-perfect code",
-    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
-  }, {
-    id: 7,
-    title: "Card Grid Layout",
-    description: "Generate responsive card grids from Figma designs",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
-  }, {
-    id: 8,
-    title: "Profile Components",
-    description: "Convert user profile designs to interactive components",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
-    designImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop",
-    codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
-  }];
+  const useCases = [
+    {
+      id: 1,
+      title: "E-commerce Product Card",
+      description: "Convert product cards from Figma to React components",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+    }, {
+      id: 2,
+      title: "Dashboard Layout",
+      description: "Transform complex dashboard designs into responsive layouts",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+    }, {
+      id: 3,
+      title: "Mobile App Interface",
+      description: "Convert mobile designs to responsive web components",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+    }, {
+      id: 4,
+      title: "Form Components",
+      description: "Generate form components with validation and styling",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+    }, {
+      id: 5,
+      title: "Navigation Menu",
+      description: "Create responsive navigation from design mockups",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop"
+    }, {
+      id: 6,
+      title: "Hero Section",
+      description: "Transform landing page heroes into pixel-perfect code",
+      image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+    }, {
+      id: 7,
+      title: "Card Grid Layout",
+      description: "Generate responsive card grids from Figma designs",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+    }, {
+      id: 8,
+      title: "Profile Components",
+      description: "Convert user profile designs to interactive components",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+    }
+  ];
   const teamMembers = [{
     name: "Alex Chen",
     role: "Founder & CEO",
@@ -94,7 +96,7 @@ const Index = () => {
   }, {
     name: "Emily Zhang",
     role: "Product Designer",
-    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(3).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgzKS5wbmciLCJpYXQiOjE3NDg0MjQ4OTQsImV4cCI6MTc3OTk2MDg5NH0.sSKCvaQXVNHz8wG-wdZvuy9XNw62IkIwwY1ktDw4xTs",
     email: "emily@codeagent.com"
   }, {
     name: "David Kim",
@@ -102,25 +104,27 @@ const Index = () => {
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
     email: "david@codeagent.com"
   }];
-  const faqs = [{
-    question: "How accurate is the Figma to code conversion?",
-    answer: "Our AI generates pixel-perfect code with 95%+ accuracy. Complex layouts and responsive designs are handled automatically."
-  }, {
-    question: "Which frameworks are supported?",
-    answer: "Currently we support React and WebUI components. Next.js support is coming soon, with Vue and Angular planned for the future."
-  }, {
-    question: "Can I customize the generated code?",
-    answer: "Yes! The generated code is clean, readable, and fully customizable. You can modify it just like any other code in your project."
-  }, {
-    question: "How does the VS Code integration work?",
-    answer: "Install our extension, connect your Figma account, and convert designs directly in your editor without context switching."
-  }, {
-    question: "Is there a free trial?",
-    answer: "Yes! The Pro plan includes a 14-day free trial with unlimited conversions and full feature access."
-  }, {
-    question: "What about responsive design?",
-    answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
-  }];
+  const faqs = [
+    {
+      question: "How accurate is the Figma to code conversion?",
+      answer: "Our AI generates pixel-perfect code with 95%+ accuracy. Complex layouts and responsive designs are handled automatically."
+    }, {
+      question: "Which frameworks are supported?",
+      answer: "Currently we support React and WebUI components. Next.js support is coming soon, with Vue and Angular planned for the future."
+    }, {
+      question: "Can I customize the generated code?",
+      answer: "Yes! The generated code is clean, readable, and fully customizable. You can modify it just like any other code in your project."
+    }, {
+      question: "How does the VS Code integration work?",
+      answer: "Install our extension, connect your Figma account, and convert designs directly in your editor without context switching."
+    }, {
+      question: "Is there a free trial?",
+      answer: "Yes! The Pro plan includes a 14-day free trial with unlimited conversions and full feature access."
+    }, {
+      question: "What about responsive design?",
+      answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
+    }
+  ];
   return <div className="min-h-screen bg-white relative">
       {/* Mouse follow glow effect */}
       <div className="fixed pointer-events-none z-10 w-96 h-96 rounded-full opacity-30 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 blur-3xl transition-all duration-300 ease-out" style={{
