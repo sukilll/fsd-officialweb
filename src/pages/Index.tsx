@@ -79,32 +79,32 @@ const Index = () => {
     }
   ];
   const teamMembers = [{
-    name: "Alex Chen",
+    name: "He Zhang",
     role: "Founder & CEO",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(1).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgxKS5wbmciLCJpYXQiOjE3NDg0MjQxOTcsImV4cCI6MTc3OTk2MDE5N30.1qRKu2akF6fRfkho3rwlA1evoLzxav33-B_f7eQVxPs",
     email: "alex@codeagent.com"
   }, {
-    name: "Sarah Wilson",
+    name: "Chenjian Liang",
     role: "CTO",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
     email: "sarah@codeagent.com"
   }, {
-    name: "Mike Johnson",
+    name: "Suki",
     role: "Lead Developer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(5).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg1KS5wbmciLCJpYXQiOjE3NDg0MjQ3NDcsImV4cCI6MTc3OTk2MDc0N30.S0wUJrfushiWuV4GCrJ3s6d3vLYDJqVW4Giso_tmaJA",
     email: "mike@codeagent.com"
   }, {
-    name: "Emily Zhang",
+    name: "Tao Li",
     role: "Product Designer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(3).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgzKS5wbmciLCJpYXQiOjE3NDg0MjQ4OTQsImV4cCI6MTc3OTk2MDg5NH0.sSKCvaQXVNHz8wG-wdZvuy9XNw62IkIwwY1ktDw4xTs",
     email: "emily@codeagent.com"
   }, {
-    name: "David Kim",
+    name: "Hailei",
     role: "AI Engineer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
     email: "david@codeagent.com"
   }, {
-    name: "He Zhang",
+    name: "Linjun",
     role: "UX Researcher",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(6).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg2KS5wbmciLCJpYXQiOjE3NDg0MjUwMjksImV4cCI6MTc3OTk2MTAyOX0.oNHixoqzppvUQYkHJqT-h69qNhNY5rwDu5HA5rjttEU",
     email: "lisa@codeagent.com"
