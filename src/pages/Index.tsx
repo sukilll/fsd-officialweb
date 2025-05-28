@@ -3,157 +3,130 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
-
 const Index = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  const useCases = [
-    {
-      id: 1,
-      title: "E-commerce Product Card",
-      description: "Convert product cards from Figma to React components",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
-    },
-    {
-      id: 2,
-      title: "Dashboard Layout",
-      description: "Transform complex dashboard designs into responsive layouts",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
-    },
-    {
-      id: 3,
-      title: "Mobile App Interface",
-      description: "Convert mobile designs to responsive web components",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
-    },
-    {
-      id: 4,
-      title: "Form Components",
-      description: "Generate form components with validation and styling",
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
-    },
-    {
-      id: 5,
-      title: "Navigation Menu",
-      description: "Create responsive navigation from design mockups",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop"
-    },
-    {
-      id: 6,
-      title: "Hero Section",
-      description: "Transform landing page heroes into pixel-perfect code",
-      image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
-    },
-    {
-      id: 7,
-      title: "Card Grid Layout",
-      description: "Generate responsive card grids from Figma designs",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
-    },
-    {
-      id: 8,
-      title: "Profile Components",
-      description: "Convert user profile designs to interactive components",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
-    }
-  ];
-
-  const teamMembers = [
-    {
-      name: "Alex Chen",
-      role: "Founder & CEO",
-      image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(1).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgxKS5wbmciLCJpYXQiOjE3NDg0MjQxOTcsImV4cCI6MTc3OTk2MDE5N30.1qRKu2akF6fRfkho3rwlA1evoLzxav33-B_f7eQVxPs",
-      email: "alex@codeagent.com"
-    },
-    {
-      name: "Sarah Wilson",
-      role: "CTO",
-      image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
-      email: "sarah@codeagent.com"
-    },
-    {
-      name: "Mike Johnson",
-      role: "Lead Developer",
-      image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
-      email: "mike@codeagent.com"
-    },
-    {
-      name: "Emily Zhang",
-      role: "Product Designer",
-      image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
-      email: "emily@codeagent.com"
-    },
-    {
-      name: "David Kim",
-      role: "AI Engineer",
-      image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
-      email: "david@codeagent.com"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "How accurate is the Figma to code conversion?",
-      answer: "Our AI generates pixel-perfect code with 95%+ accuracy. Complex layouts and responsive designs are handled automatically."
-    },
-    {
-      question: "Which frameworks are supported?",
-      answer: "Currently we support React and WebUI components. Next.js support is coming soon, with Vue and Angular planned for the future."
-    },
-    {
-      question: "Can I customize the generated code?",
-      answer: "Yes! The generated code is clean, readable, and fully customizable. You can modify it just like any other code in your project."
-    },
-    {
-      question: "How does the VS Code integration work?",
-      answer: "Install our extension, connect your Figma account, and convert designs directly in your editor without context switching."
-    },
-    {
-      question: "Is there a free trial?",
-      answer: "Yes! The Pro plan includes a 14-day free trial with unlimited conversions and full feature access."
-    },
-    {
-      question: "What about responsive design?",
-      answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white relative">
+  const useCases = [{
+    id: 1,
+    title: "E-commerce Product Card",
+    description: "Convert product cards from Figma to React components",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+  }, {
+    id: 2,
+    title: "Dashboard Layout",
+    description: "Transform complex dashboard designs into responsive layouts",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+  }, {
+    id: 3,
+    title: "Mobile App Interface",
+    description: "Convert mobile designs to responsive web components",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+  }, {
+    id: 4,
+    title: "Form Components",
+    description: "Generate form components with validation and styling",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+  }, {
+    id: 5,
+    title: "Navigation Menu",
+    description: "Create responsive navigation from design mockups",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop"
+  }, {
+    id: 6,
+    title: "Hero Section",
+    description: "Transform landing page heroes into pixel-perfect code",
+    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+  }, {
+    id: 7,
+    title: "Card Grid Layout",
+    description: "Generate responsive card grids from Figma designs",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+  }, {
+    id: 8,
+    title: "Profile Components",
+    description: "Convert user profile designs to interactive components",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
+    designImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop",
+    codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+  }];
+  const teamMembers = [{
+    name: "Alex Chen",
+    role: "Founder & CEO",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(1).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgxKS5wbmciLCJpYXQiOjE3NDg0MjQxOTcsImV4cCI6MTc3OTk2MDE5N30.1qRKu2akF6fRfkho3rwlA1evoLzxav33-B_f7eQVxPs",
+    email: "alex@codeagent.com"
+  }, {
+    name: "Sarah Wilson",
+    role: "CTO",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
+    email: "sarah@codeagent.com"
+  }, {
+    name: "Mike Johnson",
+    role: "Lead Developer",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(2).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgyKS5wbmciLCJpYXQiOjE3NDg0MjQyNTIsImV4cCI6MTc3OTk2MDI1Mn0.-9B0j5Fci1Z0C9-XLfuJfJJDKXXaaJ2gAvQuRcojbcA",
+    email: "mike@codeagent.com"
+  }, {
+    name: "Emily Zhang",
+    role: "Product Designer",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
+    email: "emily@codeagent.com"
+  }, {
+    name: "David Kim",
+    role: "AI Engineer",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(4).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg0KS5wbmciLCJpYXQiOjE3NDg0MjQyODAsImV4cCI6MTc3OTk2MDI4MH0.ZeCUsJMSAv2sH-6oURrhkpmMkZhfUd8WL3kM9umyV7M",
+    email: "david@codeagent.com"
+  }];
+  const faqs = [{
+    question: "How accurate is the Figma to code conversion?",
+    answer: "Our AI generates pixel-perfect code with 95%+ accuracy. Complex layouts and responsive designs are handled automatically."
+  }, {
+    question: "Which frameworks are supported?",
+    answer: "Currently we support React and WebUI components. Next.js support is coming soon, with Vue and Angular planned for the future."
+  }, {
+    question: "Can I customize the generated code?",
+    answer: "Yes! The generated code is clean, readable, and fully customizable. You can modify it just like any other code in your project."
+  }, {
+    question: "How does the VS Code integration work?",
+    answer: "Install our extension, connect your Figma account, and convert designs directly in your editor without context switching."
+  }, {
+    question: "Is there a free trial?",
+    answer: "Yes! The Pro plan includes a 14-day free trial with unlimited conversions and full feature access."
+  }, {
+    question: "What about responsive design?",
+    answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
+  }];
+  return <div className="min-h-screen bg-white relative">
       {/* Mouse follow glow effect */}
-      <div 
-        className="fixed pointer-events-none z-10 w-96 h-96 rounded-full opacity-30 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 blur-3xl transition-all duration-300 ease-out"
-        style={{
-          left: mousePosition.x - 192,
-          top: mousePosition.y - 192,
-          background: `radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, rgba(59, 130, 246, 0.2) 40%, rgba(236, 72, 153, 0.1) 70%, transparent 100%)`
-        }}
-      />
+      <div className="fixed pointer-events-none z-10 w-96 h-96 rounded-full opacity-30 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 blur-3xl transition-all duration-300 ease-out" style={{
+      left: mousePosition.x - 192,
+      top: mousePosition.y - 192,
+      background: `radial-gradient(circle, rgba(147, 51, 234, 0.3) 0%, rgba(59, 130, 246, 0.2) 40%, rgba(236, 72, 153, 0.1) 70%, transparent 100%)`
+    }} />
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -225,7 +198,7 @@ const Index = () => {
                   <span className="text-gray-400 text-sm ml-4">VS Code Extension</span>
                 </div>
                 <pre className="text-green-400 text-sm font-mono">
-{`> figma-to-code convert --design button.figma
+                {`> figma-to-code convert --design button.figma
 
 🎨 Converting Figma design...
 🔄 Generating React component
@@ -279,11 +252,7 @@ Quality: Production-ready`}
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" 
-                  alt="Real project development workspace"
-                  className="w-full h-80 object-cover rounded-xl shadow-lg"
-                />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" alt="Real project development workspace" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
 
@@ -300,11 +269,7 @@ Quality: Production-ready`}
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" 
-                  alt="AI-powered code generation"
-                  className="w-full h-80 object-cover rounded-xl shadow-lg"
-                />
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" alt="AI-powered code generation" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
 
@@ -321,11 +286,7 @@ Quality: Production-ready`}
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop" 
-                  alt="Production quality code"
-                  className="w-full h-80 object-cover rounded-xl shadow-lg"
-                />
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop" alt="Production quality code" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
 
@@ -342,11 +303,7 @@ Quality: Production-ready`}
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" 
-                  alt="VS Code integration"
-                  className="w-full h-80 object-cover rounded-xl shadow-lg"
-                />
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="VS Code integration" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
 
@@ -363,11 +320,7 @@ Quality: Production-ready`}
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img 
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" 
-                  alt="Framework support"
-                  className="w-full h-80 object-cover rounded-xl shadow-lg"
-                />
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="Framework support" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
           </div>
@@ -387,14 +340,9 @@ Quality: Production-ready`}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {useCases.map((useCase) => (
-              <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group">
+            {useCases.map(useCase => <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group">
                 <div className="relative overflow-hidden rounded-t-lg">
-                  <img 
-                    src={useCase.image} 
-                    alt={useCase.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <img src={useCase.image} alt={useCase.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                   <ExternalLink className="absolute top-3 right-3 w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -404,8 +352,7 @@ Quality: Production-ready`}
                     {useCase.description}
                   </CardDescription>
                 </CardHeader>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -511,15 +458,10 @@ Quality: Production-ready`}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
-            {teamMembers.map((member) => (
-              <Card key={member.name} className="border-gray-200 bg-white text-center hover:shadow-lg transition-shadow duration-300">
+            {teamMembers.map(member => <Card key={member.name} className="border-gray-200 bg-white text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
                   <CardTitle className="text-lg text-gray-900">{member.name}</CardTitle>
                   <CardDescription className="text-gray-600 mb-3">
@@ -530,8 +472,7 @@ Quality: Production-ready`}
                     Contact
                   </Button>
                 </CardHeader>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="text-center">
@@ -567,16 +508,14 @@ Quality: Production-ready`}
           </div>
           
           <div className="space-y-6">
-            {faqs.map((faq, index) => (
-              <Card key={index} className="border-gray-200 bg-white">
+            {faqs.map((faq, index) => <Card key={index} className="border-gray-200 bg-white">
                 <CardHeader>
                   <CardTitle className="text-lg text-gray-900 text-left">{faq.question}</CardTitle>
                   <CardDescription className="text-gray-600 text-left">
                     {faq.answer}
                   </CardDescription>
                 </CardHeader>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -660,8 +599,6 @@ Quality: Production-ready`}
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
