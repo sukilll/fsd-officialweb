@@ -265,66 +265,111 @@ Quality: Production-ready`}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Layers className="w-6 h-6 text-blue-600" />
+          <div className="space-y-16">
+            {/* Feature 1: Real Project Ready */}
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <Layers className="w-8 h-8 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Real Project Ready</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Works with your existing codebase—no toy demos, just real code that integrates seamlessly.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            
-            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="w-6 h-6 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">AI-Powered Figma to Code</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Skip the manual slicing. Get pixel-perfect UI components from design to code automatically.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            
-            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-green-600" />
-                </div>
-                <CardTitle className="text-xl text-gray-900">Production Quality Output</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Clean, maintainable code you'll actually use. Push it straight to your repository.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Real Project Ready</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Works with your existing codebase—no toy demos, just real code that integrates seamlessly. 
+                  Our AI understands your project structure and generates components that fit perfectly into your workflow.
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                <img 
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" 
+                  alt="Real project development workspace"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
 
-            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                  <Code className="w-6 h-6 text-indigo-600" />
+            {/* Feature 2: AI-Powered Figma to Code */}
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <Brain className="w-8 h-8 text-purple-600" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Native to VS Code</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Fully integrated extension. Zero context switching between design and development.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">AI-Powered Figma to Code</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Skip the manual slicing. Get pixel-perfect UI components from design to code automatically. 
+                  Our advanced AI understands design patterns and generates clean, maintainable code.
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                <img 
+                  src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" 
+                  alt="AI-powered code generation"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
 
-            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-orange-600" />
+            {/* Feature 3: Production Quality Output */}
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                  <Shield className="w-8 h-8 text-green-600" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Framework Support</CardTitle>
-                <CardDescription className="text-gray-600">
-                  WebUI supported out of the box. Next.js support coming soon for even more flexibility.
-                </CardDescription>
-              </CardHeader>
-            </Card>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Production Quality Output</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Clean, maintainable code you'll actually use. Push it straight to your repository. 
+                  Every component follows best practices and is optimized for performance and accessibility.
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                <img 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop" 
+                  alt="Production quality code"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
+
+            {/* Feature 4: Native to VS Code */}
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                  <Code className="w-8 h-8 text-indigo-600" />
+                </div>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Native to VS Code</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Fully integrated extension. Zero context switching between design and development. 
+                  Convert designs directly in your editor with a simple right-click.
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                <img 
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" 
+                  alt="VS Code integration"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
+
+            {/* Feature 5: Framework Support */}
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                  <Zap className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Framework Support</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  WebUI supported out of the box. Next.js support coming soon for even more flexibility. 
+                  Generate components that work seamlessly with your preferred framework and tooling.
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                <img 
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" 
+                  alt="Framework support"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
