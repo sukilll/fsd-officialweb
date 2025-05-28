@@ -82,6 +82,11 @@ const Index = () => {
   ];
   
   const teamMembers = [{
+    name: "Jingxia",
+    role: "Founder&CEO",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    email: "jingxia@codeagent.com"
+  }, {
     name: "He Zhang",
     role: "AI Engineer",
     image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(1).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICgxKS5wbmciLCJpYXQiOjE3NDg0MjQxOTcsImV4cCI6MTc3OTk2MDE5N30.1qRKu2akF6fRfkho3rwlA1evoLzxav33-B_f7eQVxPs",
@@ -474,7 +479,7 @@ Quality: Production-ready`}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 mb-16">
             {teamMembers.map(member => <Card key={member.name} className="border-gray-200 bg-white text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
