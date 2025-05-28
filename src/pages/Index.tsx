@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play } from "lucide-react";
+import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker } from "lucide-react";
 
 const Index = () => {
   return (
@@ -41,23 +41,23 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="outline" className="mb-8 px-4 py-2 text-sm border-gray-200 text-gray-700">
-            <Sparkles className="w-4 h-4 mr-2" />
-            AI-Powered Development Platform
+            <Figma className="w-4 h-4 mr-2" />
+            Figma to Code Platform
           </Badge>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
-            Ship code faster with
-            <span className="block text-black">intelligent assistance</span>
+            Figma to Code.
+            <span className="block text-black">Real Projects. Real Impact.</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            CodeAgent is the AI development platform that understands your code, optimizes performance, 
-            and generates documentation automatically. Build better software, faster.
+            Skip the manual slicing. Get pixel-perfect UI from design to code with AI-powered conversion 
+            that works with your existing codebase—no toy demos, just real code.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium">
-              Start Building
+              Start Converting
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-medium border-gray-300">
@@ -74,19 +74,19 @@ const Index = () => {
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-400 text-sm ml-4">CodeAgent Terminal</span>
+                  <span className="text-gray-400 text-sm ml-4">VS Code Extension</span>
                 </div>
                 <pre className="text-green-400 text-sm font-mono">
-{`> codeagent analyze --optimize
+{`> figma-to-code convert --design button.figma
 
-📊 Analyzing codebase...
-🚀 Performance improvements found
-📝 Auto-generating documentation
-✅ Code optimized successfully
+🎨 Converting Figma design...
+🔄 Generating React component
+📝 Optimizing for production
+✅ Component ready for integration
 
-Performance boost: +34%
-Bundle size reduced: -28%
-Documentation coverage: 100%`}
+Generated: Button.tsx
+Framework: React/Next.js
+Quality: Production-ready`}
                 </pre>
               </div>
             </div>
@@ -110,22 +110,22 @@ Documentation coverage: 100%`}
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Everything you need to build better
+              Built for real development workflows
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              CodeAgent integrates seamlessly into your workflow with powerful AI capabilities
+              Production-quality code generation that integrates seamlessly with your existing projects
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Brain className="w-6 h-6 text-blue-600" />
+                  <Layers className="w-6 h-6 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Intelligent Code Analysis</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Real Project Ready</CardTitle>
                 <CardDescription className="text-gray-600">
-                  AI understands your codebase and provides smart suggestions for optimization and refactoring
+                  Works with your existing codebase—no toy demos, just real code that integrates seamlessly.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -133,11 +133,11 @@ Documentation coverage: 100%`}
             <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-purple-600" />
+                  <Brain className="w-6 h-6 text-purple-600" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Auto Code Generation</CardTitle>
+                <CardTitle className="text-xl text-gray-900">AI-Powered Figma to Code</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Generate high-quality, maintainable code from natural language descriptions
+                  Skip the manual slicing. Get pixel-perfect UI components from design to code automatically.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -147,9 +147,33 @@ Documentation coverage: 100%`}
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-green-600" />
                 </div>
-                <CardTitle className="text-xl text-gray-900">Security Scanning</CardTitle>
+                <CardTitle className="text-xl text-gray-900">Production Quality Output</CardTitle>
                 <CardDescription className="text-gray-600">
-                  Real-time security vulnerability detection with automated fix suggestions
+                  Clean, maintainable code you'll actually use. Push it straight to your repository.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                  <Code className="w-6 h-6 text-indigo-600" />
+                </div>
+                <CardTitle className="text-xl text-gray-900">Native to VS Code</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Fully integrated extension. Zero context switching between design and development.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-orange-600" />
+                </div>
+                <CardTitle className="text-xl text-gray-900">Framework Support</CardTitle>
+                <CardDescription className="text-gray-600">
+                  WebUI supported out of the box. Next.js support coming soon for even more flexibility.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -183,11 +207,11 @@ Documentation coverage: 100%`}
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">1,000 AI queries/month</span>
+                    <span className="text-gray-700">10 conversions/month</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Basic code analysis</span>
+                    <span className="text-gray-700">Basic components</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
@@ -217,15 +241,15 @@ Documentation coverage: 100%`}
                 <ul className="space-y-3">
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Unlimited AI queries</span>
+                    <span className="text-gray-700">Unlimited conversions</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Advanced code analysis</span>
+                    <span className="text-gray-700">Advanced components</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Auto documentation</span>
+                    <span className="text-gray-700">VS Code integration</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
@@ -259,7 +283,7 @@ Documentation coverage: 100%`}
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">On-premise deployment</span>
+                    <span className="text-gray-700">Custom integrations</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
@@ -279,14 +303,14 @@ Documentation coverage: 100%`}
       <section className="py-20 px-6 bg-black">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to accelerate your development?
+            Ready to transform your design workflow?
           </h2>
           <p className="text-xl mb-8 text-gray-300">
-            Join thousands of developers who ship code faster with CodeAgent
+            Join thousands of developers shipping faster with AI-powered Figma to code conversion
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium">
-              Start Building Now
+              Start Converting Now
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button size="lg" variant="outline" className="border-gray-600 text-white hover:bg-gray-900 px-8 py-4 text-lg font-medium">
@@ -309,7 +333,7 @@ Documentation coverage: 100%`}
                 <span className="text-xl font-semibold text-gray-900">CodeAgent</span>
               </div>
               <p className="text-gray-600 max-w-sm">
-                The AI development platform that makes coding faster, smarter, and more efficient.
+                The AI-powered platform that converts Figma designs to production-ready code.
               </p>
             </div>
             
