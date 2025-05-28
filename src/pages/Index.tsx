@@ -1,10 +1,136 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker } from "lucide-react";
+import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle } from "lucide-react";
 
 const Index = () => {
+  const useCases = [
+    {
+      id: 1,
+      title: "E-commerce Product Card",
+      description: "Convert product cards from Figma to React components",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+    },
+    {
+      id: 2,
+      title: "Dashboard Layout",
+      description: "Transform complex dashboard designs into responsive layouts",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+    },
+    {
+      id: 3,
+      title: "Mobile App Interface",
+      description: "Convert mobile designs to responsive web components",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+    },
+    {
+      id: 4,
+      title: "Form Components",
+      description: "Generate form components with validation and styling",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+    },
+    {
+      id: 5,
+      title: "Navigation Menu",
+      description: "Create responsive navigation from design mockups",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop"
+    },
+    {
+      id: 6,
+      title: "Hero Section",
+      description: "Transform landing page heroes into pixel-perfect code",
+      image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+    },
+    {
+      id: 7,
+      title: "Card Grid Layout",
+      description: "Generate responsive card grids from Figma designs",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+    },
+    {
+      id: 8,
+      title: "Profile Components",
+      description: "Convert user profile designs to interactive components",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
+      designImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop",
+      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+    }
+  ];
+
+  const teamMembers = [
+    {
+      name: "Alex Chen",
+      role: "Founder & CEO",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+      email: "alex@codeagent.com"
+    },
+    {
+      name: "Sarah Wilson",
+      role: "CTO",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b766?w=300&h=300&fit=crop",
+      email: "sarah@codeagent.com"
+    },
+    {
+      name: "Mike Johnson",
+      role: "Lead Developer",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop",
+      email: "mike@codeagent.com"
+    },
+    {
+      name: "Emily Zhang",
+      role: "Product Designer",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop",
+      email: "emily@codeagent.com"
+    },
+    {
+      name: "David Kim",
+      role: "AI Engineer",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop",
+      email: "david@codeagent.com"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How accurate is the Figma to code conversion?",
+      answer: "Our AI generates pixel-perfect code with 95%+ accuracy. Complex layouts and responsive designs are handled automatically."
+    },
+    {
+      question: "Which frameworks are supported?",
+      answer: "Currently we support React and WebUI components. Next.js support is coming soon, with Vue and Angular planned for the future."
+    },
+    {
+      question: "Can I customize the generated code?",
+      answer: "Yes! The generated code is clean, readable, and fully customizable. You can modify it just like any other code in your project."
+    },
+    {
+      question: "How does the VS Code integration work?",
+      answer: "Install our extension, connect your Figma account, and convert designs directly in your editor without context switching."
+    },
+    {
+      question: "Is there a free trial?",
+      answer: "Yes! The Pro plan includes a 14-day free trial with unlimited conversions and full feature access."
+    },
+    {
+      question: "What about responsive design?",
+      answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -20,9 +146,9 @@ const Index = () => {
             
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Features</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Pricing</a>
-              <a href="#docs" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Docs</a>
-              <a href="#company" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Company</a>
+              <a href="#use-cases" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Use Cases</a>
+              <a href="#how-to-use" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">How to Use</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Contact</a>
             </div>
             
             <div className="flex items-center space-x-4">
@@ -181,120 +307,209 @@ Quality: Production-ready`}
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      {/* Use Cases Section */}
+      <section id="use-cases" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Simple, transparent pricing
+              Real-world use cases
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose the plan that fits your team size and development needs
+              See how developers are using CodeAgent to convert their Figma designs into production-ready code
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="border-gray-200 bg-white">
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Free</CardTitle>
-                <CardDescription className="text-gray-600">Perfect for individual developers</CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-gray-900">$0</span>
-                  <span className="text-gray-600">/month</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {useCases.map((useCase) => (
+              <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group">
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img 
+                    src={useCase.image} 
+                    alt={useCase.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  <ExternalLink className="absolute top-3 right-3 w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">10 conversions/month</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Basic components</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Community support</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6" variant="outline">
-                  Get Started
-                </Button>
-              </CardContent>
-            </Card>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-lg text-gray-900">{useCase.title}</CardTitle>
+                  <CardDescription className="text-gray-600">
+                    {useCase.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How to Use Section */}
+      <section id="how-to-use" className="py-20 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              How to get started
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Follow these simple steps to start converting your Figma designs to code
+            </p>
+          </div>
+          
+          <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+            <div className="space-y-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Install VS Code Extension</h3>
+                  <p className="text-gray-600 mb-4">
+                    Download and install the CodeAgent extension from the VS Code marketplace.
+                  </p>
+                  <div className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm font-mono">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Download className="w-4 h-4" />
+                      <span>VS Code Extension Marketplace</span>
+                    </div>
+                    <p>Search for "CodeAgent" and click Install</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Connect Your Figma Account</h3>
+                  <p className="text-gray-600 mb-4">
+                    Authenticate with Figma to access your design files directly from VS Code.
+                  </p>
+                  <div className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm font-mono">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Figma className="w-4 h-4" />
+                      <span>Figma Integration</span>
+                    </div>
+                    <p>CMD+Shift+P → "CodeAgent: Connect Figma"</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Convert Design to Code</h3>
+                  <p className="text-gray-600 mb-4">
+                    Select any Figma component and convert it to production-ready React code.
+                  </p>
+                  <div className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm font-mono">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Code className="w-4 h-4" />
+                      <span>Code Generation</span>
+                    </div>
+                    <p>Right-click design → "Convert to Code"</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             
-            <Card className="border-2 border-black shadow-xl bg-white relative">
-              <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black text-white">
-                <Star className="w-4 h-4 mr-1" />
-                Most Popular
-              </Badge>
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Pro</CardTitle>
-                <CardDescription className="text-gray-600">For professional developers and teams</CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-gray-900">$29</span>
-                  <span className="text-gray-600">/month</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Unlimited conversions</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Advanced components</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">VS Code integration</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Priority support</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6 bg-black hover:bg-gray-800 text-white">
-                  Start Free Trial
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <div className="flex items-center justify-center space-x-4">
+                <Button className="bg-black hover:bg-gray-800 text-white">
+                  <BookOpen className="mr-2 w-4 h-4" />
+                  Read Full Documentation
                 </Button>
-              </CardContent>
-            </Card>
-            
-            <Card className="border-gray-200 bg-white">
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Enterprise</CardTitle>
-                <CardDescription className="text-gray-600">For large teams and organizations</CardDescription>
-                <div className="mt-4">
-                  <span className="text-4xl font-bold text-gray-900">$99</span>
-                  <span className="text-gray-600">/month</span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Everything in Pro</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Team collaboration</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">Custom integrations</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                    <span className="text-gray-700">24/7 dedicated support</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6" variant="outline">
-                  Contact Sales
+                <Button variant="outline">
+                  <Play className="mr-2 w-4 h-4" />
+                  Watch Tutorial
                 </Button>
-              </CardContent>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us Section */}
+      <section id="contact" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Meet our team
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The passionate developers and designers behind CodeAgent
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+            {teamMembers.map((member) => (
+              <Card key={member.name} className="border-gray-200 bg-white text-center hover:shadow-lg transition-shadow duration-300">
+                <CardHeader className="pb-4">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <CardTitle className="text-lg text-gray-900">{member.name}</CardTitle>
+                  <CardDescription className="text-gray-600 mb-3">
+                    {member.role}
+                  </CardDescription>
+                  <Button variant="outline" size="sm" className="mx-auto">
+                    <Mail className="mr-2 w-4 h-4" />
+                    Contact
+                  </Button>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Card className="inline-block border-gray-200 bg-gray-50">
+              <CardHeader>
+                <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="w-8 h-8 text-white" />
+                </div>
+                <CardTitle className="text-xl text-gray-900">Need Support?</CardTitle>
+                <CardDescription className="text-gray-600 mb-4">
+                  Get in touch with our customer success team
+                </CardDescription>
+                <Button className="bg-black hover:bg-gray-800 text-white">
+                  <Mail className="mr-2 w-4 h-4" />
+                  support@codeagent.com
+                </Button>
+              </CardHeader>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Frequently asked questions
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Everything you need to know about CodeAgent
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <Card key={index} className="border-gray-200 bg-white">
+                <CardHeader>
+                  <CardTitle className="text-lg text-gray-900 text-left">{faq.question}</CardTitle>
+                  <CardDescription className="text-gray-600 text-left">
+                    {faq.answer}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
