@@ -106,7 +106,7 @@ const Index = () => {
   }, {
     name: "Lisa Rodriguez",
     role: "UX Researcher",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b332c4ff?w=400&h=400&fit=crop&crop=face",
+    image: "https://pczyevythzyvgtneuvmd.supabase.co/storage/v1/object/sign/teamavator/image%20(6).png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5XzM2MmE0NTNmLTljMjItNDFiNS04OTJjLTllOWQxMzc0MzI2MiJ9.eyJ1cmwiOiJ0ZWFtYXZhdG9yL2ltYWdlICg2KS5wbmciLCJpYXQiOjE3NDg0MjUwMjksImV4cCI6MTc3OTk2MTAyOX0.oNHixoqzppvUQYkHJqT-h69qNhNY5rwDu5HA5rjttEU",
     email: "lisa@codeagent.com"
   }];
   const faqs = [
