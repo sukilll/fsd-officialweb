@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import Navigation from "@/components/Navigation";
 
 const Index = () => {
   const [mousePosition, setMousePosition] = useState({
@@ -148,35 +149,7 @@ const Index = () => {
     }} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-                <Code className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-semibold text-gray-900">FSD</span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Features</a>
-              <a href="#use-cases" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Use Cases</a>
-              <a href="#how-to-use" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">How to Use</a>
-              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Blog</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Contact</a>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" className="text-gray-600 hover:text-gray-900 font-medium">
-                Sign In
-              </Button>
-              <Button className="bg-black hover:bg-gray-800 text-white font-medium">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative">
