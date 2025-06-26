@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle } from "lucide-react";
+import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Index = () => {
@@ -118,7 +118,7 @@ const Index = () => {
     email: "lisa@codeagent.com"
   }];
   
-  // ... keep existing code (faqs array and all other component code)
+  // ... keep existing code (faqs array)
   const faqs = [
     {
       question: "How accurate is the Figma to code conversion?",
@@ -141,7 +141,6 @@ const Index = () => {
     }
   ];
   
-  // ... keep existing code (return JSX and all other component code)
   return <div className="min-h-screen bg-white relative">
       {/* Mouse follow glow effect */}
       <div className="fixed pointer-events-none z-10 w-96 h-96 rounded-full opacity-30 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 blur-3xl transition-all duration-300 ease-out" style={{
@@ -158,7 +157,7 @@ const Index = () => {
               <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
                 <Code className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-semibold text-gray-900">CodeAgent</span>
+              <span className="text-xl font-semibold text-gray-900">FSD</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -185,17 +184,17 @@ const Index = () => {
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="outline" className="mb-8 px-4 py-2 text-sm border-gray-200 text-gray-700">
             <Figma className="w-4 h-4 mr-2" />
-            Figma to Code Platform
+            Design to Code & Migration Platform
           </Badge>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
-            Figma to Code.
-            <span className="block text-black">Real Projects. Real Impact.</span>
+            Design to Code.
+            <span className="block text-black">Migration Made Easy.</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Skip the manual slicing. Get pixel-perfect UI from design to code with AI-powered conversion 
-            that works with your existing codebase—no toy demos, just real code.
+            Convert Figma designs to code instantly and migrate Web UI to Web UI2 seamlessly. 
+            AI-powered conversion that works with your existing codebase—no toy demos, just real code.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -217,17 +216,23 @@ const Index = () => {
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-400 text-sm ml-4">VS Code Extension</span>
+                  <span className="text-gray-400 text-sm ml-4">FSD CLI</span>
                 </div>
                 <pre className="text-green-400 text-sm font-mono">
-                {`> figma-to-code convert --design button.figma
+                {`> fsd convert --design button.figma
 
 🎨 Converting Figma design...
 🔄 Generating React component
 📝 Optimizing for production
 ✅ Component ready for integration
 
-Generated: Button.tsx
+> fsd migrate --from webui --to webui2
+
+🔄 Analyzing Web UI components...
+🚀 Migrating to Web UI2
+✅ Migration completed successfully
+
+Generated: Button.tsx, Form.tsx
 Framework: React/Next.js
 Quality: Production-ready`}
                 </pre>
@@ -253,45 +258,45 @@ Quality: Production-ready`}
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Built for real development workflows
+              Built for modern development workflows
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Production-quality code generation that integrates seamlessly with your existing projects
+              From design conversion to code migration, get production-quality results that integrate seamlessly with your projects
             </p>
           </div>
           
           <div className="space-y-16">
-            {/* Feature 1: Real Project Ready */}
+            {/* Feature 1: AI-Powered Figma to Code */}
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
                 <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                  <Layers className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Real Project Ready</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Works with your existing codebase—no toy demos, just real code that integrates seamlessly. 
-                  Our AI understands your project structure and generates components that fit perfectly into your workflow.
-                </p>
-              </div>
-              <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" alt="Real project development workspace" className="w-full h-80 object-cover rounded-xl shadow-lg" />
-              </div>
-            </div>
-
-            {/* Feature 2: AI-Powered Figma to Code */}
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                  <Brain className="w-8 h-8 text-purple-600" />
+                  <Brain className="w-8 h-8 text-blue-600" />
                 </div>
                 <h3 className="text-3xl font-bold mb-4 text-gray-900">AI-Powered Figma to Code</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Skip the manual slicing. Get pixel-perfect UI components from design to code automatically. 
-                  Our advanced AI understands design patterns and generates clean, maintainable code.
+                  Our advanced AI understands design patterns and generates clean, maintainable code that matches your design exactly.
                 </p>
               </div>
               <div className="lg:w-1/2">
                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" alt="AI-powered code generation" className="w-full h-80 object-cover rounded-xl shadow-lg" />
+              </div>
+            </div>
+
+            {/* Feature 2: Web UI to Web UI2 Migration */}
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+              <div className="lg:w-1/2">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <RefreshCw className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Web UI to Web UI2 Migration</h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Seamlessly upgrade your existing Web UI components to Web UI2. Our intelligent migration tool 
+                  analyzes your current codebase and automatically converts components while preserving functionality and improving performance.
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="Code migration process" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
 
@@ -304,7 +309,7 @@ Quality: Production-ready`}
                 <h3 className="text-3xl font-bold mb-4 text-gray-900">Production Quality Output</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Clean, maintainable code you'll actually use. Push it straight to your repository. 
-                  Every component follows best practices and is optimized for performance and accessibility.
+                  Every component follows best practices and is optimized for performance, accessibility, and maintainability.
                 </p>
               </div>
               <div className="lg:w-1/2">
@@ -312,37 +317,37 @@ Quality: Production-ready`}
               </div>
             </div>
 
-            {/* Feature 4: Native to VS Code */}
+            {/* Feature 4: Intelligent Code Analysis */}
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               <div className="lg:w-1/2">
                 <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
                   <Code className="w-8 h-8 text-indigo-600" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Native to VS Code</h3>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Intelligent Code Analysis</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Fully integrated extension. Zero context switching between design and development. 
-                  Convert designs directly in your editor with a simple right-click.
+                  Our AI understands your existing codebase structure and patterns. Whether converting designs or migrating code, 
+                  it maintains consistency with your project's architecture and coding standards.
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="VS Code integration" className="w-full h-80 object-cover rounded-xl shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Code analysis" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
 
-            {/* Feature 5: Framework Support */}
+            {/* Feature 5: Multi-Framework Support */}
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
                 <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                  <Zap className="w-8 h-8 text-orange-600" />
+                  <Layers className="w-8 h-8 text-orange-600" />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Framework Support</h3>
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">Multi-Framework Support</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  WebUI supported out of the box. Next.js support coming soon for even more flexibility. 
-                  Generate components that work seamlessly with your preferred framework and tooling.
+                  Support for React, Web UI, and Web UI2 out of the box. Next.js support coming soon. 
+                  Generate components that work seamlessly with your preferred framework and tooling setup.
                 </p>
               </div>
               <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="Framework support" className="w-full h-80 object-cover rounded-xl shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" alt="Framework support" className="w-full h-80 object-cover rounded-xl shadow-lg" />
               </div>
             </div>
           </div>
@@ -357,7 +362,7 @@ Quality: Production-ready`}
               Real-world use cases
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See how developers are using CodeAgent to convert their Figma designs into production-ready code
+              See how developers are using FSD to convert their Figma designs and migrate their codebase to production-ready solutions
             </p>
           </div>
           
@@ -387,7 +392,7 @@ Quality: Production-ready`}
               How to get started
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Follow these simple steps to start converting your Figma designs to code
+              Follow these simple steps to start converting your Figma designs to code and migrating your components
             </p>
           </div>
           
@@ -398,16 +403,16 @@ Quality: Production-ready`}
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Install VS Code Extension</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Install FSD CLI</h3>
                   <p className="text-gray-600 mb-4">
-                    Download and install the CodeAgent extension from the VS Code marketplace.
+                    Download and install the FSD command-line tool to get started with design conversion and code migration.
                   </p>
                   <div className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm font-mono">
                     <div className="flex items-center space-x-2 mb-2">
                       <Download className="w-4 h-4" />
-                      <span>VS Code Extension Marketplace</span>
+                      <span>Install FSD CLI</span>
                     </div>
-                    <p>Search for "CodeAgent" and click Install</p>
+                    <p>npm install -g fsd-cli</p>
                   </div>
                 </div>
               </div>
@@ -419,14 +424,14 @@ Quality: Production-ready`}
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">Connect Your Figma Account</h3>
                   <p className="text-gray-600 mb-4">
-                    Authenticate with Figma to access your design files directly from VS Code.
+                    Authenticate with Figma to access your design files for automatic code conversion.
                   </p>
                   <div className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm font-mono">
                     <div className="flex items-center space-x-2 mb-2">
                       <Figma className="w-4 h-4" />
                       <span>Figma Integration</span>
                     </div>
-                    <p>CMD+Shift+P → "CodeAgent: Connect Figma"</p>
+                    <p>fsd auth figma</p>
                   </div>
                 </div>
               </div>
@@ -436,16 +441,17 @@ Quality: Production-ready`}
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Convert Design to Code</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Convert & Migrate</h3>
                   <p className="text-gray-600 mb-4">
-                    Select any Figma component and convert it to production-ready React code.
+                    Convert Figma designs to code or migrate existing Web UI components to Web UI2 with simple commands.
                   </p>
                   <div className="bg-gray-900 rounded-lg p-4 text-green-400 text-sm font-mono">
                     <div className="flex items-center space-x-2 mb-2">
-                      <Code className="w-4 h-4" />
-                      <span>Code Generation</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                      <span>Convert & Migrate</span>
                     </div>
-                    <p>Right-click design → "Convert to Code"</p>
+                    <p>fsd convert --design button.figma</p>
+                    <p>fsd migrate --from webui --to webui2</p>
                   </div>
                 </div>
               </div>
@@ -475,7 +481,7 @@ Quality: Production-ready`}
               Meet our team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The passionate developers and designers behind CodeAgent
+              The passionate developers and designers behind FSD
             </p>
           </div>
           
@@ -509,7 +515,7 @@ Quality: Production-ready`}
                 </CardDescription>
                 <Button className="bg-black hover:bg-gray-800 text-white">
                   <Mail className="mr-2 w-4 h-4" />
-                  support@codeagent.com
+                  support@fsd.dev
                 </Button>
               </CardHeader>
             </Card>
@@ -525,7 +531,7 @@ Quality: Production-ready`}
               Frequently asked questions
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need to know about CodeAgent
+              Everything you need to know about FSD
             </p>
           </div>
           
@@ -546,10 +552,10 @@ Quality: Production-ready`}
       <section className="py-20 px-6 bg-black">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to transform your design workflow?
+            Ready to transform your development workflow?
           </h2>
           <p className="text-xl mb-8 text-gray-300">
-            Join thousands of developers shipping faster with AI-powered Figma to code conversion
+            Join thousands of developers shipping faster with AI-powered design conversion and code migration
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium">
@@ -573,10 +579,10 @@ Quality: Production-ready`}
                 <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
                   <Code className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-semibold text-gray-900">CodeAgent</span>
+                <span className="text-xl font-semibold text-gray-900">FSD</span>
               </div>
               <p className="text-gray-600 max-w-sm">
-                The AI-powered platform that converts Figma designs to production-ready code.
+                The AI-powered platform that converts Figma designs to code and migrates components seamlessly.
               </p>
             </div>
             
@@ -612,7 +618,7 @@ Quality: Production-ready`}
           </div>
           
           <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500">&copy; 2024 CodeAgent. All rights reserved.</p>
+            <p className="text-gray-500">&copy; 2024 FSD. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Privacy</a>
               <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Terms</a>
