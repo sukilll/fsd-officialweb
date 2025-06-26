@@ -1,4 +1,3 @@
-
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,7 +66,7 @@ const Blog = () => {
         <div className="pt-24 pb-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center">
-              <h1 className="text-2xl font-bold text-red-600 mb-4">Loading Failed</h1>
+              <h1 className="text-2xl font-bold text-black mb-4">Loading Failed</h1>
               <p className="text-gray-600">Unable to load blog posts. Please try again later.</p>
             </div>
           </div>
@@ -86,7 +85,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black">
               Blog
             </h1>
           </div>
@@ -95,42 +94,34 @@ const Blog = () => {
           {featuredPost && (
             <div className="mb-16">
               <Link to={`/blog/${featuredPost.slug}`}>
-                <Card className="overflow-hidden border-0 shadow-none bg-gradient-to-br from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-all duration-300 group">
-                  <div className="flex flex-col lg:flex-row">
-                    <div className="lg:w-1/2 bg-gradient-to-br from-blue-500 to-purple-600 min-h-[300px] relative overflow-hidden">
-                      <div className="absolute inset-0 bg-black/20"></div>
-                      <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1">
-                        <span className="text-white text-sm font-medium">Featured</span>
-                      </div>
+                <Card className="overflow-hidden border border-gray-300 shadow-none bg-white hover:bg-gray-50 transition-all duration-300 group">
+                  <div className="p-12">
+                    <div className="mb-4">
+                      <Badge variant="secondary" className="text-xs mb-3 bg-black text-white">
+                        {featuredPost.tags?.[0] || 'Featured'}
+                      </Badge>
+                      <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4 group-hover:text-gray-700 transition-colors">
+                        {featuredPost.title}
+                      </h2>
+                      <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                        {featuredPost.excerpt}
+                      </p>
                     </div>
-                    <div className="lg:w-1/2 p-8 lg:p-12">
-                      <div className="mb-4">
-                        <Badge variant="secondary" className="text-xs mb-3">
-                          {featuredPost.tags?.[0] || 'Featured'}
-                        </Badge>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
-                          {featuredPost.title}
-                        </h2>
-                        <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                          {featuredPost.excerpt}
-                        </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-4 text-sm text-gray-500">
+                        <div className="flex items-center space-x-1">
+                          <User className="w-4 h-4" />
+                          <span>{featuredPost.author_name}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{format(new Date(featuredPost.published_at), 'MMM dd, yyyy').toUpperCase()}</span>
+                        </div>
                       </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4 text-sm text-gray-500">
-                          <div className="flex items-center space-x-1">
-                            <User className="w-4 h-4" />
-                            <span>{featuredPost.author_name}</span>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <Calendar className="w-4 h-4" />
-                            <span>{format(new Date(featuredPost.published_at), 'MMM dd, yyyy').toUpperCase()}</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center space-x-1 text-sm text-gray-500">
-                          <Clock className="w-4 h-4" />
-                          <span>{featuredPost.reading_time} min read</span>
-                        </div>
+                      <div className="flex items-center space-x-1 text-sm text-gray-500">
+                        <Clock className="w-4 h-4" />
+                        <span>{featuredPost.reading_time} min read</span>
                       </div>
                     </div>
                   </div>
@@ -148,8 +139,8 @@ const Blog = () => {
                   onClick={() => setActiveFilter(filter)}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
                     activeFilter === filter
-                      ? 'bg-white text-gray-900 shadow-sm'
-                      : 'text-gray-600 hover:text-gray-900'
+                      ? 'bg-black text-white shadow-sm'
+                      : 'text-gray-600 hover:text-black'
                   }`}
                 >
                   {filter}
@@ -157,7 +148,7 @@ const Blog = () => {
               ))}
             </div>
             
-            <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <button className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors">
               <Rss className="w-4 h-4" />
               <span className="text-sm">RSS</span>
             </button>
@@ -167,13 +158,10 @@ const Blog = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regularPosts.map((post) => (
               <Link key={post.id} to={`/blog/${post.slug}`}>
-                <Card className="h-full border-0 shadow-none bg-gray-50 hover:bg-gray-100 transition-all duration-300 group overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
-                  </div>
+                <Card className="h-full border border-gray-300 shadow-none bg-white hover:bg-gray-50 transition-all duration-300 group overflow-hidden">
                   <CardHeader className="pb-4">
                     <div className="mb-3">
-                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight">
+                      <h3 className="text-xl font-bold text-black group-hover:text-gray-700 transition-colors leading-tight">
                         {post.title}
                       </h3>
                     </div>
@@ -184,8 +172,8 @@ const Blog = () => {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
-                        <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
-                          <span className="text-xs font-medium text-gray-600">
+                        <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center">
+                          <span className="text-xs font-medium">
                             {post.author_name.charAt(0).toUpperCase()}
                           </span>
                         </div>
@@ -200,7 +188,7 @@ const Blog = () => {
                     {post.tags && post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-3">
                         {post.tags.slice(0, 2).map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5">
+                          <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5 bg-gray-100 text-black border border-gray-300">
                             {tag}
                           </Badge>
                         ))}
