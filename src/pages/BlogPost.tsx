@@ -74,8 +74,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-
-        <div className="py-12">
+        <div className="pt-24 pb-12">
           <div className="max-w-4xl mx-auto px-6">
             {/* Navigation */}
             <div className="mb-8">
@@ -107,8 +106,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
-
-        <div className="py-12">
+        <div className="pt-24 pb-12">
           <div className="max-w-4xl mx-auto px-6">
             {/* Navigation */}
             <div className="mb-8">
@@ -134,8 +132,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
-
-      <div className="py-12">
+      <div className="pt-24 pb-12">
         <div className="max-w-4xl mx-auto px-6">
           {/* Navigation */}
           <div className="mb-8">
