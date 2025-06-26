@@ -20,7 +20,6 @@ const Index = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   
-  // ... keep existing code (useCases array)
   const useCases = [
     {
       id: 1,
@@ -118,7 +117,6 @@ const Index = () => {
     email: "lisa@codeagent.com"
   }];
   
-  // ... keep existing code (faqs array)
   const faqs = [
     {
       question: "How accurate is the Figma to code conversion?",
@@ -164,6 +162,7 @@ const Index = () => {
               <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Features</a>
               <a href="#use-cases" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Use Cases</a>
               <a href="#how-to-use" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">How to Use</a>
+              <a href="/blog" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Blog</a>
               <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors font-medium">Contact</a>
             </div>
             
@@ -600,7 +599,7 @@ Quality: Production-ready`}
               <h3 className="font-semibold mb-4 text-gray-900">Company</h3>
               <ul className="space-y-2 text-gray-600">
                 <li><a href="#" className="hover:text-gray-900 transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Blog</a></li>
+                <li><a href="/blog" className="hover:text-gray-900 transition-colors">Blog</a></li>
                 <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
                 <li><a href="#" className="hover:text-gray-900 transition-colors">Contact</a></li>
               </ul>
