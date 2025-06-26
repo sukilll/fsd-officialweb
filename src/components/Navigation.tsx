@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Code } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const location = useLocation();
@@ -48,6 +49,9 @@ const Navigation = () => {
             >
               Blog
             </Link>
+            <Button className="bg-black hover:bg-gray-800 text-white">
+              Start now
+            </Button>
           </div>
         </div>
       </div>
