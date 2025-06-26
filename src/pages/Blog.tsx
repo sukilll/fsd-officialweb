@@ -42,7 +42,7 @@ const Blog = () => {
     return (
       <div className="min-h-screen bg-white">
         <Navigation />
-        <div className="pt-24 pb-12">
+        <div className="pt-32 pb-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="animate-pulse">
               <div className="h-12 bg-gray-200 rounded w-64 mb-4"></div>
@@ -63,7 +63,7 @@ const Blog = () => {
     return (
       <div className="min-h-screen bg-white">
         <Navigation />
-        <div className="pt-24 pb-12">
+        <div className="pt-32 pb-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center">
               <h1 className="text-2xl font-bold text-black mb-4">Loading Failed</h1>
@@ -81,10 +81,10 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <div className="pt-24 pb-12">
+      <div className="pt-32 pb-12">
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
-          <div className="mb-16">
+          <div className="mb-16 mt-12">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black">
               Blog
             </h1>
