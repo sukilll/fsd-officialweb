@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, User, Calendar } from "lucide-react";
+import { Clock, User, Calendar, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { zhCN } from "date-fns/locale";
@@ -38,6 +38,17 @@ const Blog = () => {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-6">
+          {/* Navigation */}
+          <div className="mb-8">
+            <Link 
+              to="/" 
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              <Home className="w-4 h-4 mr-2" />
+              返回首页
+            </Link>
+          </div>
+          
           <div className="animate-pulse">
             <div className="h-8 bg-gray-200 rounded w-48 mb-4"></div>
             <div className="h-4 bg-gray-200 rounded w-96 mb-12"></div>
@@ -59,9 +70,22 @@ const Blog = () => {
   if (error) {
     return (
       <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">加载失败</h1>
-          <p className="text-gray-600">无法加载博客文章，请稍后重试。</p>
+        <div className="max-w-4xl mx-auto px-6">
+          {/* Navigation */}
+          <div className="mb-8">
+            <Link 
+              to="/" 
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              <Home className="w-4 h-4 mr-2" />
+              返回首页
+            </Link>
+          </div>
+          
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-red-600 mb-4">加载失败</h1>
+            <p className="text-gray-600">无法加载博客文章，请稍后重试。</p>
+          </div>
         </div>
       </div>
     );
@@ -70,6 +94,17 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-6">
+        {/* Navigation */}
+        <div className="mb-8">
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+          >
+            <Home className="w-4 h-4 mr-2" />
+            返回首页
+          </Link>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
