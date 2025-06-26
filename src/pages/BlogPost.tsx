@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Clock, User, Calendar, ArrowLeft } from "lucide-react";
 import { format } from "date-fns";
-import { zhCN } from "date-fns/locale";
 
 interface BlogPost {
   id: string;
@@ -29,7 +28,7 @@ const BlogPost = () => {
   const { data: post, isLoading, error } = useQuery({
     queryKey: ['blog-post', slug],
     queryFn: async () => {
-      if (!slug) throw new Error('文章标识符缺失');
+      if (!slug) throw new Error('Article slug is missing');
       
       const { data, error } = await supabase
         .from('blog_posts')
@@ -39,65 +38,12 @@ const BlogPost = () => {
         .maybeSingle();
       
       if (error) throw error;
-      if (!data) throw new Error('文章未找到');
+      if (!data) throw new Error('Article not found');
       
       return data as BlogPost;
     },
     enabled: !!slug
   });
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6">
-          {/* Navigation */}
-          <div className="mb-8">
-            <Link 
-              to="/blog" 
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              返回博客列表
-            </Link>
-          </div>
-          
-          <div className="animate-pulse">
-            <div className="h-12 bg-gray-200 rounded w-3/4 mb-6"></div>
-            <div className="h-4 bg-gray-200 rounded w-1/2 mb-8"></div>
-            <div className="space-y-4">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-4 bg-gray-200 rounded"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error || !post) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-6">
-          {/* Navigation */}
-          <div className="mb-8">
-            <Link 
-              to="/blog" 
-              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              返回博客列表
-            </Link>
-          </div>
-          
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-red-600 mb-4">文章未找到</h1>
-            <p className="text-gray-600">抱歉，您访问的文章不存在或已被删除。</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   // Simple markdown-like rendering function
   const renderContent = (content: string) => {
@@ -123,80 +69,202 @@ const BlogPost = () => {
       });
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-6">
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
         {/* Navigation */}
-        <div className="mb-8">
-          <Link 
-            to="/blog" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            返回博客列表
-          </Link>
+        <nav className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex">
+                <div className="flex-shrink-0 flex items-center">
+                  <Link to="/" className="text-2xl font-bold text-gray-900">FSD</Link>
+                </div>
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                  <Link to="/" className="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                    Home
+                  </Link>
+                  <Link to="/blog" className="border-b-2 border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                    Blog
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div className="py-12">
+          <div className="max-w-4xl mx-auto px-6">
+            {/* Navigation */}
+            <div className="mb-8">
+              <Link 
+                to="/blog" 
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Blog
+              </Link>
+            </div>
+            
+            <div className="animate-pulse">
+              <div className="h-12 bg-gray-200 rounded w-3/4 mb-6"></div>
+              <div className="h-4 bg-gray-200 rounded w-1/2 mb-8"></div>
+              <div className="space-y-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="h-4 bg-gray-200 rounded"></div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    );
+  }
 
-        <Card className="bg-white border-gray-200">
-          <CardHeader className="pb-8">
-            {/* Article Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-              {post.title}
-            </h1>
+  if (error || !post) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        {/* Navigation */}
+        <nav className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16">
+              <div className="flex">
+                <div className="flex-shrink-0 flex items-center">
+                  <Link to="/" className="text-2xl font-bold text-gray-900">FSD</Link>
+                </div>
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                  <Link to="/" className="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                    Home
+                  </Link>
+                  <Link to="/blog" className="border-b-2 border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                    Blog
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
 
-            {/* Article Meta */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-              <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                <Avatar className="w-12 h-12">
-                  <AvatarImage src={post.author_avatar || undefined} />
-                  <AvatarFallback>
-                    {post.author_name.charAt(0).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-medium text-gray-900">{post.author_name}</p>
-                  <div className="flex items-center space-x-3 text-sm text-gray-500">
-                    <div className="flex items-center space-x-1">
-                      <Calendar className="w-4 h-4" />
-                      <span>{format(new Date(post.published_at), 'yyyy年MM月dd日', { locale: zhCN })}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{post.reading_time} 分钟阅读</span>
+        <div className="py-12">
+          <div className="max-w-4xl mx-auto px-6">
+            {/* Navigation */}
+            <div className="mb-8">
+              <Link 
+                to="/blog" 
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Blog
+              </Link>
+            </div>
+            
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-red-600 mb-4">Article Not Found</h1>
+              <p className="text-gray-600">Sorry, the article you're looking for doesn't exist or has been removed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex">
+              <div className="flex-shrink-0 flex items-center">
+                <Link to="/" className="text-2xl font-bold text-gray-900">FSD</Link>
+              </div>
+              <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+                <Link to="/" className="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                  Home
+                </Link>
+                <Link to="/blog" className="border-b-2 border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+                  Blog
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div className="py-12">
+        <div className="max-w-4xl mx-auto px-6">
+          {/* Navigation */}
+          <div className="mb-8">
+            <Link 
+              to="/blog" 
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Blog
+            </Link>
+          </div>
+
+          <Card className="bg-white border-gray-200">
+            <CardHeader className="pb-8">
+              {/* Article Title */}
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                {post.title}
+              </h1>
+
+              {/* Article Meta */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div className="flex items-center space-x-4 mb-4 md:mb-0">
+                  <Avatar className="w-12 h-12">
+                    <AvatarImage src={post.author_avatar || undefined} />
+                    <AvatarFallback>
+                      {post.author_name.charAt(0).toUpperCase()}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-medium text-gray-900">{post.author_name}</p>
+                    <div className="flex items-center space-x-3 text-sm text-gray-500">
+                      <div className="flex items-center space-x-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{format(new Date(post.published_at), 'MMM dd, yyyy')}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Clock className="w-4 h-4" />
+                        <span>{post.reading_time} min read</span>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                {/* Tags */}
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </div>
+            </CardHeader>
 
-              {/* Tags */}
-              {post.tags && post.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              )}
-            </div>
-          </CardHeader>
+            <CardContent className="prose prose-lg max-w-none">
+              <div className="text-gray-800 leading-relaxed">
+                {renderContent(post.content)}
+              </div>
+            </CardContent>
+          </Card>
 
-          <CardContent className="prose prose-lg max-w-none">
-            <div className="text-gray-800 leading-relaxed">
-              {renderContent(post.content)}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Footer Navigation */}
-        <div className="mt-12 text-center">
-          <Link 
-            to="/blog" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors font-medium"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            查看更多文章
-          </Link>
+          {/* Footer Navigation */}
+          <div className="mt-12 text-center">
+            <Link 
+              to="/blog" 
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors font-medium"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              View More Articles
+            </Link>
+          </div>
         </div>
       </div>
     </div>
