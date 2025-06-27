@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -216,15 +217,24 @@ const BlogPost = () => {
                         {children}
                       </blockquote>
                     ),
-                    code: ({ children }) => (
-                      <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800">
-                        {children}
-                      </code>
-                    ),
+                    code: ({ inline, children }) => {
+                      if (inline) {
+                        return (
+                          <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800 break-words">
+                            {children}
+                          </code>
+                        );
+                      }
+                      return (
+                        <code className="block bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono leading-relaxed whitespace-pre">
+                          {children}
+                        </code>
+                      );
+                    },
                     pre: ({ children }) => (
-                      <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6">
+                      <div className="my-6 rounded-lg overflow-hidden bg-gray-900">
                         {children}
-                      </pre>
+                      </div>
                     ),
                     a: ({ href, children }) => (
                       <a 
