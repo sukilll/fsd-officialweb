@@ -217,17 +217,17 @@ const BlogPost = () => {
                         {children}
                       </blockquote>
                     ),
-                    code: ({ inline, children }) => {
+                    code: ({ node, inline, ...props }: any) => {
                       if (inline) {
                         return (
                           <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-gray-800 break-words">
-                            {children}
+                            {props.children}
                           </code>
                         );
                       }
                       return (
                         <code className="block bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm font-mono leading-relaxed whitespace-pre">
-                          {children}
+                          {props.children}
                         </code>
                       );
                     },
