@@ -11,4 +11,6 @@ export interface BlogPost {
   reading_time: number;
   slug: string;
   tags: string[];
+  excerpt: string;
+  thumbnail_url?: string;
 }

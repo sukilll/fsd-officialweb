@@ -1,3 +1,4 @@
+
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,11 +8,13 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import Navigation from "@/components/Navigation";
 import { useState } from "react";
+import { extractFirstImageFromMarkdown } from "@/utils/extractThumbnail";
 
 interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
+  content: string;
   author_name: string;
   published_at: string;
   reading_time: number;
@@ -27,7 +30,7 @@ const Blog = () => {
     queryFn: async () => {
       const { data, error } = await supabase
         .from('blog_posts')
-        .select('id, title, excerpt, author_name, published_at, reading_time, slug, tags')
+        .select('id, title, excerpt, content, author_name, published_at, reading_time, slug, tags')
         .eq('is_published', true)
         .order('published_at', { ascending: false });
       
@@ -95,33 +98,46 @@ const Blog = () => {
             <div className="mb-16">
               <Link to={`/blog/${featuredPost.slug}`}>
                 <Card className="overflow-hidden border border-gray-300 shadow-none bg-white hover:bg-gray-50 transition-all duration-300 group">
-                  <div className="p-12">
-                    <div className="mb-4">
-                      <Badge variant="secondary" className="text-xs mb-3 bg-black text-white">
-                        {featuredPost.tags?.[0] || 'Featured'}
-                      </Badge>
-                      <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4 group-hover:text-gray-700 transition-colors">
-                        {featuredPost.title}
-                      </h2>
-                      <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                        {featuredPost.excerpt}
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-4 text-sm text-gray-500">
-                        <div className="flex items-center space-x-1">
-                          <User className="w-4 h-4" />
-                          <span>{featuredPost.author_name}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{format(new Date(featuredPost.published_at), 'MMM dd, yyyy').toUpperCase()}</span>
-                        </div>
+                  <div className="flex flex-col lg:flex-row">
+                    {/* 缩略图 */}
+                    {extractFirstImageFromMarkdown(featuredPost.content) && (
+                      <div className="lg:w-1/2">
+                        <img 
+                          src={extractFirstImageFromMarkdown(featuredPost.content)!}
+                          alt={featuredPost.title}
+                          className="w-full h-64 lg:h-full object-cover"
+                        />
                       </div>
-                      <div className="flex items-center space-x-1 text-sm text-gray-500">
-                        <Clock className="w-4 h-4" />
-                        <span>{featuredPost.reading_time} min read</span>
+                    )}
+                    
+                    <div className={`p-12 ${extractFirstImageFromMarkdown(featuredPost.content) ? 'lg:w-1/2' : 'w-full'}`}>
+                      <div className="mb-4">
+                        <Badge variant="secondary" className="text-xs mb-3 bg-black text-white">
+                          {featuredPost.tags?.[0] || 'Featured'}
+                        </Badge>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4 group-hover:text-gray-700 transition-colors">
+                          {featuredPost.title}
+                        </h2>
+                        <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                          {featuredPost.excerpt}
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4 text-sm text-gray-500">
+                          <div className="flex items-center space-x-1">
+                            <User className="w-4 h-4" />
+                            <span>{featuredPost.author_name}</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <Calendar className="w-4 h-4" />
+                            <span>{format(new Date(featuredPost.published_at), 'MMM dd, yyyy').toUpperCase()}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-1 text-sm text-gray-500">
+                          <Clock className="w-4 h-4" />
+                          <span>{featuredPost.reading_time} min read</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -156,48 +172,63 @@ const Blog = () => {
 
           {/* Blog Posts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {regularPosts.map((post) => (
-              <Link key={post.id} to={`/blog/${post.slug}`}>
-                <Card className="h-full border border-gray-300 shadow-none bg-white hover:bg-gray-50 transition-all duration-300 group overflow-hidden">
-                  <CardHeader className="pb-4">
-                    <div className="mb-3">
-                      <h3 className="text-xl font-bold text-black group-hover:text-gray-700 transition-colors leading-tight">
-                        {post.title}
-                      </h3>
-                    </div>
-                    <CardDescription className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                      {post.excerpt}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center">
-                          <span className="text-xs font-medium">
-                            {post.author_name.charAt(0).toUpperCase()}
-                          </span>
-                        </div>
-                        <span className="text-xs text-gray-500">{post.author_name}</span>
-                      </div>
-                      <div className="flex items-center space-x-3 text-xs text-gray-500">
-                        <span>{format(new Date(post.published_at), 'MMM dd, yyyy').toUpperCase()}</span>
-                        <span>{post.reading_time} min</span>
-                      </div>
-                    </div>
-                    
-                    {post.tags && post.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1 mt-3">
-                        {post.tags.slice(0, 2).map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5 bg-gray-100 text-black border border-gray-300">
-                            {tag}
-                          </Badge>
-                        ))}
+            {regularPosts.map((post) => {
+              const thumbnailUrl = extractFirstImageFromMarkdown(post.content);
+              
+              return (
+                <Link key={post.id} to={`/blog/${post.slug}`}>
+                  <Card className="h-full border border-gray-300 shadow-none bg-white hover:bg-gray-50 transition-all duration-300 group overflow-hidden">
+                    {/* 缩略图 */}
+                    {thumbnailUrl && (
+                      <div className="aspect-video overflow-hidden">
+                        <img 
+                          src={thumbnailUrl}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
                     )}
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    
+                    <CardHeader className="pb-4">
+                      <div className="mb-3">
+                        <h3 className="text-xl font-bold text-black group-hover:text-gray-700 transition-colors leading-tight">
+                          {post.title}
+                        </h3>
+                      </div>
+                      <CardDescription className="text-gray-600 text-sm leading-relaxed line-clamp-3">
+                        {post.excerpt}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center">
+                            <span className="text-xs font-medium">
+                              {post.author_name.charAt(0).toUpperCase()}
+                            </span>
+                          </div>
+                          <span className="text-xs text-gray-500">{post.author_name}</span>
+                        </div>
+                        <div className="flex items-center space-x-3 text-xs text-gray-500">
+                          <span>{format(new Date(post.published_at), 'MMM dd, yyyy').toUpperCase()}</span>
+                          <span>{post.reading_time} min</span>
+                        </div>
+                      </div>
+                      
+                      {post.tags && post.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mt-3">
+                          {post.tags.slice(0, 2).map((tag) => (
+                            <Badge key={tag} variant="secondary" className="text-xs px-2 py-0.5 bg-gray-100 text-black border border-gray-300">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
 
           {blogPosts && blogPosts.length === 0 && (
