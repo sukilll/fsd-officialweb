@@ -18,7 +18,7 @@ const UseCases = () => {
     {
       id: "edge-fre",
       title: "Edge FRE pages", 
-      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/FRE.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL0ZSRS5wbmciLCJpYXQiOjE3NTEzNTkwNzMsImV4cCI6MTc4Mjg5NTA3M30.iT8JBRRx5rz6n_FXkcSS8av_h5H7FJJHqn7s2hZ8VXo",
+      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/FSD%20banner.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL0ZTRCBiYW5uZXIucG5nIiwiaWF0IjoxNzUxMzY0OTA1LCJleHAiOjE3ODI5MDA5MDV9.H2A-xTI_f7VIE4CfNEj0A_OayItVjsbvnL8l42ZiLyc",
       description: "Provided significant assistance with the onboarding page of EdgeMobile’s FSD, delivering an exceptional implementation that closely matched the design mockups to code with high fidelity and attention to detail."
     },
     {
