@@ -67,7 +67,7 @@ const UseCases = () => {
           </div>
 
           {/* Use Cases Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {useCases.map((useCase) => (
               <Card 
                 key={useCase.id} 
@@ -75,7 +75,7 @@ const UseCases = () => {
                 onClick={() => handleCardClick(useCase.id)}
               >
                 <CardContent className="p-0">
-                  <AspectRatio ratio={4/3}>
+                  <AspectRatio ratio={16/9}>
                     <img 
                       src={useCase.image} 
                       alt={useCase.title}
