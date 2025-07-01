@@ -11,9 +11,9 @@ const UseCases = () => {
   const useCases = [
     {
       id: "rapid-prototyping",
-      title: "Rapid Prototyping",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-      description: "Transform your design mockups into functional React components in minutes, not hours."
+      title: "Edge iOS extension",
+      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/example.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL2V4YW1wbGUucG5nIiwiaWF0IjoxNzUxMzU3MTg0LCJleHAiOjE3ODI4OTMxODR9.LVGhimjv4VoAVWjxDQFqZVvurvvcLjhXExjtiFAsDF0",
+      description: "FSD supported the development of an iOS extension for Edge browser, enabling seamless Figma-to-code conversion. We helped build the extension’s interface, including a clean and efficient list view to manage design exports."
     },
     {
       id: "design-system",
