@@ -2,29 +2,36 @@
 import React from 'react';
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Upload, Zap, Download, CheckCircle } from "lucide-react";
+import { Download, Settings, Zap, MessageCircle } from "lucide-react";
 
 const HowToUse = () => {
   const steps = [
     {
-      icon: <Upload className="w-8 h-8 text-blue-600" />,
-      title: "Upload Your Design",
-      description: "Upload your design files (Figma, Sketch, or image files) to our platform. We support various formats including PNG, JPG, and design tool exports."
+      icon: <Download className="w-8 h-8 text-blue-600" />,
+      title: "Setup Figma MCP",
+      description: "Get started by downloading the extension and setting up your environment with our one-click setup process.",
+      substeps: [
+        "Download extension from https://github.com/ai-microsoft/fsd/releases/download/release-extension-v0.3.1/edge-fsd-agent-extension-0.3.1.vsix",
+        "One click to Set up Environment",
+        "One click to Figma MCP Setup"
+      ]
     },
     {
-      icon: <Zap className="w-8 h-8 text-yellow-600" />,
-      title: "AI Processing",
-      description: "Our AI analyzes your design, identifying components, layouts, styling, and interactive elements to generate clean, semantic code."
+      icon: <Settings className="w-8 h-8 text-green-600" />,
+      title: "Create New Project",
+      description: "Use pnpm to scaffold a new project with our webui template, setting up all the necessary files and dependencies.",
+      substeps: [
+        "Run 'pnpm webui:create' to scaffold a new project"
+      ]
     },
     {
-      icon: <Download className="w-8 h-8 text-green-600" />,
-      title: "Download Code",
-      description: "Get your generated React components with Tailwind CSS styling, ready to integrate into your project or customize further."
-    },
-    {
-      icon: <CheckCircle className="w-8 h-8 text-purple-600" />,
-      title: "Integrate & Deploy",
-      description: "Copy the code into your project, make any necessary adjustments, and deploy your application with confidence."
+      icon: <Zap className="w-8 h-8 text-purple-600" />,
+      title: "Start Development",
+      description: "Open your webui folder and start chatting with the webui_desktop to begin your development workflow.",
+      substeps: [
+        "Open webui folder",
+        "Use '/' to chat with webui_desktop"
+      ]
     }
   ];
 
@@ -39,7 +46,7 @@ const HowToUse = () => {
               How to Use FSD
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Transform your designs into production-ready code in just four simple steps
+              Get started with FSD in three simple steps and transform your Figma designs into production-ready code
             </p>
           </div>
 
@@ -65,9 +72,17 @@ const HowToUse = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="pl-16">
-                  <CardDescription className="text-gray-600 text-base leading-relaxed">
+                  <CardDescription className="text-gray-600 text-base leading-relaxed mb-4">
                     {step.description}
                   </CardDescription>
+                  <ul className="space-y-2">
+                    {step.substeps.map((substep, substepIndex) => (
+                      <li key={substepIndex} className="flex items-start">
+                        <span className="text-gray-400 mr-3 mt-1">•</span>
+                        <span className="text-gray-700 text-sm">{substep}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -80,29 +95,32 @@ const HowToUse = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Clean Code</h3>
-                <p className="text-gray-600">Semantic HTML, modern CSS with Tailwind, and optimized React components</p>
+                <h3 className="font-semibold text-gray-900 mb-2">Figma Integration</h3>
+                <p className="text-gray-600">Seamless connection between Figma designs and code generation</p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Responsive Design</h3>
-                <p className="text-gray-600">Mobile-first approach ensuring your components work on all devices</p>
+                <h3 className="font-semibold text-gray-900 mb-2">Interactive Development</h3>
+                <p className="text-gray-600">Chat-based interface for real-time code generation and modifications</p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Best Practices</h3>
-                <p className="text-gray-600">Code follows industry standards and accessibility guidelines</p>
+                <h3 className="font-semibold text-gray-900 mb-2">Modern Tooling</h3>
+                <p className="text-gray-600">Built with latest development tools and best practices</p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Easy Integration</h3>
-                <p className="text-gray-600">Ready-to-use components that integrate seamlessly with your existing codebase</p>
+                <h3 className="font-semibold text-gray-900 mb-2">Easy Setup</h3>
+                <p className="text-gray-600">One-click environment setup and configuration</p>
               </div>
             </div>
           </div>
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-medium transition-colors">
-              Start Converting Your Designs
-            </button>
+            <a 
+              href="https://github.com/ai-microsoft/fsd/releases/download/release-extension-v0.3.1/edge-fsd-agent-extension-0.3.1.vsix"
+              className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-medium transition-colors inline-block"
+            >
+              Download Extension
+            </a>
           </div>
         </div>
       </div>
