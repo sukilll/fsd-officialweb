@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -25,59 +26,35 @@ const Index = () => {
     {
       id: 1,
       title: "E-commerce Product Card",
-      description: "Convert product cards from Figma to React components",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+      description: "Convert product cards from Figma to React components"
     }, {
       id: 2,
       title: "Dashboard Layout",
-      description: "Transform complex dashboard designs into responsive layouts",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+      description: "Transform complex dashboard designs into responsive layouts"
     }, {
       id: 3,
       title: "Mobile App Interface",
-      description: "Convert mobile designs to responsive web components",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+      description: "Convert mobile designs to responsive web components"
     }, {
       id: 4,
       title: "Form Components",
-      description: "Generate form components with validation and styling",
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+      description: "Generate form components with validation and styling"
     }, {
       id: 5,
       title: "Navigation Menu",
-      description: "Create responsive navigation from design mockups",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop"
+      description: "Create responsive navigation from design mockups"
     }, {
       id: 6,
       title: "Hero Section",
-      description: "Transform landing page heroes into pixel-perfect code",
-      image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+      description: "Transform landing page heroes into pixel-perfect code"
     }, {
       id: 7,
       title: "Card Grid Layout",
-      description: "Generate responsive card grids from Figma designs",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop"
+      description: "Generate responsive card grids from Figma designs"
     }, {
       id: 8,
       title: "Profile Components",
-      description: "Convert user profile designs to interactive components",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop",
-      designImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=400&fit=crop",
-      codeImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop"
+      description: "Convert user profile designs to interactive components"
     }
   ];
   
@@ -237,91 +214,78 @@ Quality: Production-ready`}
             </p>
           </div>
           
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1: AI-Powered Figma to Code */}
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                  <Brain className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">AI-Powered Figma to Code</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Skip the manual slicing. Get pixel-perfect UI components from design to code automatically. 
-                  Our advanced AI understands design patterns and generates clean, maintainable code that matches your design exactly.
-                </p>
+            <Card className="border-gray-200 bg-white p-6">
+              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <Brain className="w-8 h-8 text-blue-600" />
               </div>
-              <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&h=400&fit=crop" alt="AI-powered code generation" className="w-full h-80 object-cover rounded-xl shadow-lg" />
-              </div>
-            </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">AI-Powered Figma to Code</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Skip the manual slicing. Get pixel-perfect UI components from design to code automatically. 
+                Our advanced AI understands design patterns and generates clean, maintainable code that matches your design exactly.
+              </p>
+            </Card>
 
             {/* Feature 2: Web UI to Web UI2 Migration */}
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                  <RefreshCw className="w-8 h-8 text-purple-600" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Web UI to Web UI2 Migration</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Seamlessly upgrade your existing Web UI components to Web UI2. Our intelligent migration tool 
-                  analyzes your current codebase and automatically converts components while preserving functionality and improving performance.
-                </p>
+            <Card className="border-gray-200 bg-white p-6">
+              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                <RefreshCw className="w-8 h-8 text-purple-600" />
               </div>
-              <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="Code migration process" className="w-full h-80 object-cover rounded-xl shadow-lg" />
-              </div>
-            </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Web UI to Web UI2 Migration</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Seamlessly upgrade your existing Web UI components to Web UI2. Our intelligent migration tool 
+                analyzes your current codebase and automatically converts components while preserving functionality and improving performance.
+              </p>
+            </Card>
 
             {/* Feature 3: Production Quality Output */}
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                  <Shield className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Production Quality Output</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Clean, maintainable code you'll actually use. Push it straight to your repository. 
-                  Every component follows best practices and is optimized for performance, accessibility, and maintainability.
-                </p>
+            <Card className="border-gray-200 bg-white p-6">
+              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                <Shield className="w-8 h-8 text-green-600" />
               </div>
-              <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop" alt="Production quality code" className="w-full h-80 object-cover rounded-xl shadow-lg" />
-              </div>
-            </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Production Quality Output</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Clean, maintainable code you'll actually use. Push it straight to your repository. 
+                Every component follows best practices and is optimized for performance, accessibility, and maintainability.
+              </p>
+            </Card>
 
             {/* Feature 4: Intelligent Code Analysis */}
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
-                  <Code className="w-8 h-8 text-indigo-600" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Intelligent Code Analysis</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Our AI understands your existing codebase structure and patterns. Whether converting designs or migrating code, 
-                  it maintains consistency with your project's architecture and coding standards.
-                </p>
+            <Card className="border-gray-200 bg-white p-6">
+              <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                <Code className="w-8 h-8 text-indigo-600" />
               </div>
-              <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Code analysis" className="w-full h-80 object-cover rounded-xl shadow-lg" />
-              </div>
-            </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Intelligent Code Analysis</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our AI understands your existing codebase structure and patterns. Whether converting designs or migrating code, 
+                it maintains consistency with your project's architecture and coding standards.
+              </p>
+            </Card>
 
             {/* Feature 5: Multi-Framework Support */}
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2">
-                <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                  <Layers className="w-8 h-8 text-orange-600" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-900">Multi-Framework Support</h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Support for React, Web UI, and Web UI2 out of the box. Next.js support coming soon. 
-                  Generate components that work seamlessly with your preferred framework and tooling setup.
-                </p>
+            <Card className="border-gray-200 bg-white p-6">
+              <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                <Layers className="w-8 h-8 text-orange-600" />
               </div>
-              <div className="lg:w-1/2">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop" alt="Framework support" className="w-full h-80 object-cover rounded-xl shadow-lg" />
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Multi-Framework Support</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Support for React, Web UI, and Web UI2 out of the box. Next.js support coming soon. 
+                Generate components that work seamlessly with your preferred framework and tooling setup.
+              </p>
+            </Card>
+
+            {/* Feature 6: Developer Experience */}
+            <Card className="border-gray-200 bg-white p-6">
+              <div className="w-16 h-16 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+                <Zap className="w-8 h-8 text-pink-600" />
               </div>
-            </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-900">Streamlined Developer Experience</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Integrate seamlessly with your existing workflow. Command-line tools, VS Code extensions, 
+                and API access make it easy to incorporate FSD into your development process.
+              </p>
+            </Card>
           </div>
         </div>
       </section>
@@ -340,12 +304,10 @@ Quality: Production-ready`}
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {useCases.map(useCase => <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group">
-                <div className="relative overflow-hidden rounded-t-lg">
-                  <img src={useCase.image} alt={useCase.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                  <ExternalLink className="absolute top-3 right-3 w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <CardHeader className="pb-4">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors">
+                    <ExternalLink className="w-6 h-6 text-gray-600" />
+                  </div>
                   <CardTitle className="text-lg text-gray-900">{useCase.title}</CardTitle>
                   <CardDescription className="text-gray-600">
                     {useCase.description}
