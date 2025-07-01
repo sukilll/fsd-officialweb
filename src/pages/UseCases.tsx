@@ -1,42 +1,55 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from "@/components/Navigation";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code, Palette, Zap, Globe, Smartphone, Monitor } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const UseCases = () => {
+  const navigate = useNavigate();
+
   const useCases = [
     {
-      icon: <Code className="w-8 h-8 text-blue-600" />,
+      id: "rapid-prototyping",
       title: "Rapid Prototyping",
-      description: "Transform your design mockups into functional React components in minutes, not hours. Perfect for quick iterations and proof of concepts."
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+      description: "Transform your design mockups into functional React components in minutes, not hours."
     },
     {
-      icon: <Palette className="w-8 h-8 text-purple-600" />,
-      title: "Design System Implementation",
-      description: "Convert your design system components into consistent, reusable code components that maintain design fidelity across your application."
+      id: "design-system",
+      title: "Design System Implementation", 
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=400&h=300&fit=crop",
+      description: "Convert your design system components into consistent, reusable code components."
     },
     {
-      icon: <Zap className="w-8 h-8 text-yellow-600" />,
+      id: "frontend-acceleration",
       title: "Frontend Development Acceleration",
-      description: "Speed up your development workflow by automatically generating the initial component structure and styling from your designs."
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",
+      description: "Speed up your development workflow by automatically generating component structure."
     },
     {
-      icon: <Globe className="w-8 h-8 text-green-600" />,
+      id: "landing-pages",
       title: "Landing Page Creation",
-      description: "Quickly turn landing page designs into responsive, production-ready code with proper semantic HTML and optimized CSS."
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+      description: "Quickly turn landing page designs into responsive, production-ready code."
     },
     {
-      icon: <Smartphone className="w-8 h-8 text-red-600" />,
+      id: "mobile-first",
       title: "Mobile-First Development",
-      description: "Generate responsive components that work seamlessly across all device sizes, ensuring your designs look perfect everywhere."
+      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=300&fit=crop",
+      description: "Generate responsive components that work seamlessly across all device sizes."
     },
     {
-      icon: <Monitor className="w-8 h-8 text-indigo-600" />,
+      id: "dashboard-panels",
       title: "Dashboard & Admin Panels",
-      description: "Convert complex dashboard designs into functional admin interfaces with proper component architecture and state management."
+      image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?w=400&h=300&fit=crop",
+      description: "Convert complex dashboard designs into functional admin interfaces."
     }
   ];
+
+  const handleCardClick = (useCaseId: string) => {
+    navigate(`/use-cases/${useCaseId}`);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -55,20 +68,28 @@ const UseCases = () => {
 
           {/* Use Cases Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {useCases.map((useCase, index) => (
-              <Card key={index} className="bg-white border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mb-4">
-                    {useCase.icon}
+            {useCases.map((useCase) => (
+              <Card 
+                key={useCase.id} 
+                className="bg-white border-gray-200 hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105"
+                onClick={() => handleCardClick(useCase.id)}
+              >
+                <CardContent className="p-0">
+                  <AspectRatio ratio={4/3}>
+                    <img 
+                      src={useCase.image} 
+                      alt={useCase.title}
+                      className="w-full h-full object-cover rounded-t-lg"
+                    />
+                  </AspectRatio>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {useCase.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {useCase.description}
+                    </p>
                   </div>
-                  <CardTitle className="text-xl text-gray-900">
-                    {useCase.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600 leading-relaxed">
-                    {useCase.description}
-                  </CardDescription>
                 </CardContent>
               </Card>
             ))}

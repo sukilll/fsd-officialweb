@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import UseCases from "./pages/UseCases";
+import UseCaseDetail from "./pages/UseCaseDetail";
 import HowToUse from "./pages/HowToUse";
 import NotFound from "./pages/NotFound";
 
@@ -22,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/use-cases/:id" element={<UseCaseDetail />} />
           <Route path="/how-to-use" element={<HowToUse />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
