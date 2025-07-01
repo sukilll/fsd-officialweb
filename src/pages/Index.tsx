@@ -408,7 +408,7 @@ Quality: Production-ready`}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-16">
             {teamMembers.map(member => <Card key={member.name} className="border-gray-200 bg-white text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="pb-4">
                   <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
