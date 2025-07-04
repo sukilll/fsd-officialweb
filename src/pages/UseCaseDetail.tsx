@@ -1,129 +1,67 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Code, Palette, Zap, Globe, Smartphone, Monitor } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
+import { supabase } from "@/integrations/supabase/client";
 
 const UseCaseDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [useCase, setUseCase] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const useCaseDetails = {
-    "rapid-prototyping": {
-      title: "Rapid Prototyping",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
-      icon: <Code className="w-12 h-12 text-blue-600" />,
-      description: "Transform your design mockups into functional React components in minutes, not hours. Perfect for quick iterations and proof of concepts.",
-      features: [
-        "Visual design to code conversion",
-        "Component-based architecture",
-        "Instant preview and iteration",
-        "Export clean, maintainable code"
-      ],
-      benefits: [
-        "Reduce development time by 70%",
-        "Maintain design consistency",
-        "Speed up client feedback cycles",
-        "Focus on logic instead of styling"
-      ]
-    },
-    "design-system": {
-      title: "Design System Implementation",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&h=400&fit=crop",
-      icon: <Palette className="w-12 h-12 text-purple-600" />,
-      description: "Convert your design system components into consistent, reusable code components that maintain design fidelity across your application.",
-      features: [
-        "Design token integration",
-        "Component library generation",
-        "Style guide enforcement",
-        "Cross-platform consistency"
-      ],
-      benefits: [
-        "Ensure brand consistency",
-        "Accelerate team productivity",
-        "Reduce design debt",
-        "Streamline handoff process"
-      ]
-    },
-    "frontend-acceleration": {
-      title: "Frontend Development Acceleration",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop",
-      icon: <Zap className="w-12 h-12 text-yellow-600" />,
-      description: "Speed up your development workflow by automatically generating the initial component structure and styling from your designs.",
-      features: [
-        "Automated code generation",
-        "Modern React patterns",
-        "TypeScript support",
-        "Optimized performance"
-      ],
-      benefits: [
-        "3x faster development cycles",
-        "Reduced manual coding errors",
-        "Better code quality",
-        "More time for business logic"
-      ]
-    },
-    "landing-pages": {
-      title: "Landing Page Creation",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-      icon: <Globe className="w-12 h-12 text-green-600" />,
-      description: "Quickly turn landing page designs into responsive, production-ready code with proper semantic HTML and optimized CSS.",
-      features: [
-        "Responsive design conversion",
-        "SEO-optimized markup",
-        "Performance optimization",
-        "Cross-browser compatibility"
-      ],
-      benefits: [
-        "Launch campaigns faster",
-        "Improve conversion rates",
-        "Better search rankings",
-        "Reduced bounce rates"
-      ]
-    },
-    "mobile-first": {
-      title: "Mobile-First Development",
-      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&h=400&fit=crop",
-      icon: <Smartphone className="w-12 h-12 text-red-600" />,
-      description: "Generate responsive components that work seamlessly across all device sizes, ensuring your designs look perfect everywhere.",
-      features: [
-        "Mobile-first approach",
-        "Responsive breakpoints",
-        "Touch-friendly interfaces",
-        "Performance optimization"
-      ],
-      benefits: [
-        "Better mobile experience",
-        "Improved user engagement",
-        "Higher mobile conversions",
-        "Future-proof designs"
-      ]
-    },
-    "dashboard-panels": {
-      title: "Dashboard & Admin Panels",
-      image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?w=800&h=400&fit=crop",
-      icon: <Monitor className="w-12 h-12 text-indigo-600" />,
-      description: "Convert complex dashboard designs into functional admin interfaces with proper component architecture and state management.",
-      features: [
-        "Data visualization components",
-        "Interactive elements",
-        "State management integration",
-        "Real-time updates"
-      ],
-      benefits: [
-        "Faster admin development",
-        "Better data insights",
-        "Improved user workflows",
-        "Scalable architecture"
-      ]
+  useEffect(() => {
+    if (id) {
+      fetchUseCase(id);
+    }
+  }, [id]);
+
+  const fetchUseCase = async (useCaseId: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('use_cases')
+        .select('*')
+        .eq('id', useCaseId)
+        .single();
+
+      if (error) throw error;
+      setUseCase(data);
+    } catch (error) {
+      console.error('Error fetching use case:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const currentUseCase = useCaseDetails[id as keyof typeof useCaseDetails];
+  const getIcon = (iconName: string) => {
+    const iconMap: { [key: string]: JSX.Element } = {
+      'Code': <Code className="w-12 h-12 text-blue-600" />,
+      'Palette': <Palette className="w-12 h-12 text-purple-600" />,
+      'Zap': <Zap className="w-12 h-12 text-yellow-600" />,
+      'Globe': <Globe className="w-12 h-12 text-green-600" />,
+      'Smartphone': <Smartphone className="w-12 h-12 text-red-600" />,
+      'Monitor': <Monitor className="w-12 h-12 text-indigo-600" />
+    };
+    return iconMap[iconName] || <Code className="w-12 h-12 text-blue-600" />;
+  };
 
-  if (!currentUseCase) {
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Navigation />
+        <div className="pt-24 pb-12">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <div className="text-gray-600">Loading...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!useCase) {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navigation />
@@ -159,20 +97,20 @@ const UseCaseDetail = () => {
           {/* Hero Section */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
             <img 
-              src={currentUseCase.image} 
-              alt={currentUseCase.title}
+              src={useCase.image} 
+              alt={useCase.title}
               className="w-full h-64 object-cover"
             />
             <div className="p-8">
               <div className="flex items-center mb-4">
-                {currentUseCase.icon}
+                {getIcon(useCase.icon_name)}
                 <h1 className="text-3xl font-bold text-gray-900 ml-4">
-                  {currentUseCase.title}
+                  {useCase.title}
                 </h1>
               </div>
               <div className="text-xl text-gray-600 leading-relaxed prose prose-xl max-w-none">
                 <ReactMarkdown>
-                  {currentUseCase.description}
+                  {useCase.description}
                 </ReactMarkdown>
               </div>
             </div>

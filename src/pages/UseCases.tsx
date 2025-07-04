@@ -1,39 +1,35 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { supabase } from "@/integrations/supabase/client";
 
 const UseCases = () => {
   const navigate = useNavigate();
+  const [useCases, setUseCases] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const useCases = [
-    {
-      id: "edge-ios-extension",
-      title: "Edge iOS extension",
-      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/example.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL2V4YW1wbGUucG5nIiwiaWF0IjoxNzUxMzU3MTg0LCJleHAiOjE3ODI4OTMxODR9.LVGhimjv4VoAVWjxDQFqZVvurvvcLjhXExjtiFAsDF0",
-      description: "FSD supported the development of an iOS extension for Edge browser, enabling seamless Figma-to-code conversion. We helped build the extension’s interface, including a clean and efficient list view to manage design exports."
-    },
-    {
-      id: "edge-fre",
-      title: "Edge FRE pages", 
-      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/FSD%20banner.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL0ZTRCBiYW5uZXIucG5nIiwiaWF0IjoxNzUxMzY0OTA1LCJleHAiOjE3ODI5MDA5MDV9.H2A-xTI_f7VIE4CfNEj0A_OayItVjsbvnL8l42ZiLyc",
-      description: "Provided significant assistance with the onboarding page of EdgeMobile’s FSD, delivering an exceptional implementation that closely matched the design mockups to code with high fidelity and attention to detail."
-    },
-    {
-      id: "frontend-acceleration",
-      title: "Edge Readingmode migration",
-      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/WechatIMG64.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL1dlY2hhdElNRzY0LmpwZyIsImlhdCI6MTc1MTYwOTEyMSwiZXhwIjoxNzgzMTQ1MTIxfQ.drycZGhL-ddW5RcxmxwFx7lf_eLdo-4SUcbCgOje73o",
-      description: "FSD helped migrate the desktop reading mode from the original Web UI to WebUI2, significantly reducing manual effort."
-    },
-    {
-      id: "landing-pages",
-      title: "Edge History migration",
-      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/WechatIMG66.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL1dlY2hhdElNRzY2LmpwZyIsImlhdCI6MTc1MTYwOTQ5MCwiZXhwIjoxNzgzMTQ1NDkwfQ.Ci6cCnAUcLd8qRB4R6MXErYImDpuzDMLvO17lCO-fHQ",
-      description: "FSD helped migrate the Edge history page from the original Web UI to WebUI2, significantly reducing manual effort."
-    },
-  ];
+  useEffect(() => {
+    fetchUseCases();
+  }, []);
+
+  const fetchUseCases = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('use_cases')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+      if (error) throw error;
+      setUseCases(data || []);
+    } catch (error) {
+      console.error('Error fetching use cases:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleCardClick = (useCaseId: string) => {
     navigate(`/use-cases/${useCaseId}`);

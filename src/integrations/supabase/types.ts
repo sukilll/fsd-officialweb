@@ -57,6 +57,36 @@ export type Database = {
         }
         Relationships: []
       }
+      use_cases: {
+        Row: {
+          created_at: string
+          description: string
+          icon_name: string
+          id: string
+          image: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          icon_name: string
+          id: string
+          image: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          icon_name?: string
+          id?: string
+          image?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
