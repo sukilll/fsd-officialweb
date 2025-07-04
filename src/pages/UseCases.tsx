@@ -29,9 +29,9 @@ const UseCases = () => {
     },
     {
       id: "landing-pages",
-      title: "Landing Page Creation",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-      description: "Quickly turn landing page designs into responsive, production-ready code."
+      title: "Edge History migration",
+      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/WechatIMG66.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL1dlY2hhdElNRzY2LmpwZyIsImlhdCI6MTc1MTYwOTQ5MCwiZXhwIjoxNzgzMTQ1NDkwfQ.Ci6cCnAUcLd8qRB4R6MXErYImDpuzDMLvO17lCO-fHQ",
+      description: "FSD helped migrate the Edge history page from the original Web UI to WebUI2, significantly reducing manual effort."
     },
     {
       id: "mobile-first",
