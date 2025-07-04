@@ -2,7 +2,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight, BarChart3, TrendingUp } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -46,6 +47,14 @@ const Index = () => {
     }
   };
   
+  // Evaluation scores data
+  const evaluationData = [
+    { version: 'V1', testCase1: 6.15, testCase2: 6.85, average: 6.5 },
+    { version: 'V2', testCase1: 8.4, testCase2: 7.4, average: 7.9 },
+    { version: 'V3', testCase1: 9.4, testCase2: 9.3, average: 9.35 },
+    { version: 'V3-reasoning', testCase1: 9.5, testCase2: 9.7, average: 9.6 }
+  ];
+
   const teamMembers = [ {
     name: "Chenjian",
     role: "AI Engineer",
@@ -290,6 +299,122 @@ Quality: Production-ready`}
         </div>
       </section>
 
+
+      {/* Performance Metrics Section */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Continuously improving performance
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Our evaluation scores show consistent improvement across versions, demonstrating our commitment to delivering better results
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Chart Section */}
+            <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <BarChart3 className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">FSD Evaluation Metrics</h3>
+                  <p className="text-gray-600 text-sm">Performance scores across algorithm versions</p>
+                </div>
+              </div>
+              
+              <div className="h-80">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={evaluationData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <XAxis 
+                      dataKey="version" 
+                      axisLine={false}
+                      tickLine={false}
+                      tick={{ fontSize: 12, fill: '#6b7280' }}
+                    />
+                    <YAxis 
+                      domain={[0, 10]}
+                      axisLine={false}
+                      tickLine={false}
+                      tick={{ fontSize: 12, fill: '#6b7280' }}
+                    />
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'white',
+                        border: '1px solid #e5e7eb',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                      }}
+                    />
+                    <Bar 
+                      dataKey="testCase1" 
+                      fill="#3b82f6" 
+                      name="Test Case 1"
+                      radius={[2, 2, 0, 0]}
+                    />
+                    <Bar 
+                      dataKey="testCase2" 
+                      fill="#8b5cf6" 
+                      name="Test Case 2"
+                      radius={[2, 2, 0, 0]}
+                    />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+            
+            {/* Metrics Summary */}
+            <div className="space-y-6">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">Performance Highlights</h3>
+                  <p className="text-gray-600">Key improvements across algorithm versions</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {evaluationData.map((data, index) => (
+                  <Card key={data.version} className="border-gray-200 bg-white p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="font-semibold text-gray-900">{data.version}</h4>
+                      <Badge variant="outline" className="text-xs">
+                        Avg: {data.average.toFixed(1)}
+                      </Badge>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Test Case 1:</span>
+                        <span className="font-medium text-blue-600">{data.testCase1}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-600">Test Case 2:</span>
+                        <span className="font-medium text-purple-600">{data.testCase2}</span>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-100">
+                <div className="flex items-center space-x-3 mb-3">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <h4 className="font-semibold text-gray-900">Latest Achievement</h4>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Our V3-reasoning loop algorithm achieved the highest scores yet, with 9.5/9.7 across test cases, 
+                  representing a <span className="font-semibold text-blue-600">43% improvement</span> since V1.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact Us Section */}
       <section id="contact" className="py-20 px-6">
