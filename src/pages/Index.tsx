@@ -4,13 +4,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Navigation from "@/components/Navigation";
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const [useCases, setUseCases] = useState<any[]>([]);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
+
+  useEffect(() => {
+    fetchUseCases();
+  }, []);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -21,42 +30,20 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-  
-  const useCases = [
-    {
-      id: 1,
-      title: "E-commerce Product Card",
-      description: "Convert product cards from Figma to React components"
-    }, {
-      id: 2,
-      title: "Dashboard Layout",
-      description: "Transform complex dashboard designs into responsive layouts"
-    }, {
-      id: 3,
-      title: "Mobile App Interface",
-      description: "Convert mobile designs to responsive web components"
-    }, {
-      id: 4,
-      title: "Form Components",
-      description: "Generate form components with validation and styling"
-    }, {
-      id: 5,
-      title: "Navigation Menu",
-      description: "Create responsive navigation from design mockups"
-    }, {
-      id: 6,
-      title: "Hero Section",
-      description: "Transform landing page heroes into pixel-perfect code"
-    }, {
-      id: 7,
-      title: "Card Grid Layout",
-      description: "Generate responsive card grids from Figma designs"
-    }, {
-      id: 8,
-      title: "Profile Components",
-      description: "Convert user profile designs to interactive components"
+
+  const fetchUseCases = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('use_cases')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+      if (error) throw error;
+      setUseCases(data || []);
+    } catch (error) {
+      console.error('Error fetching use cases:', error);
     }
-  ];
+  };
   
   const teamMembers = [ {
     name: "Chenjian",
@@ -281,7 +268,7 @@ Quality: Production-ready`}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {useCases.map(useCase => <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group">
+            {useCases.slice(0, 8).map(useCase => <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group" onClick={() => navigate(`/use-cases/${useCase.id}`)}>
                 <CardHeader>
                   <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors">
                     <ExternalLink className="w-6 h-6 text-gray-600" />
