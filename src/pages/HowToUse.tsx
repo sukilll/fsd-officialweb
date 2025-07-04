@@ -2,7 +2,7 @@
 import React from 'react';
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download, Settings, Zap, MessageCircle } from "lucide-react";
+import { Download, Settings, Zap, MessageCircle, Terminal, FileText } from "lucide-react";
 
 const HowToUse = () => {
   const steps = [
@@ -75,7 +75,7 @@ const HowToUse = () => {
                   <CardDescription className="text-gray-600 text-base leading-relaxed mb-4">
                     {step.description}
                   </CardDescription>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-6">
                     {step.substeps.map((substep, substepIndex) => (
                       <li key={substepIndex} className="flex items-start">
                         <span className="text-gray-400 mr-3 mt-1">•</span>
@@ -83,6 +83,76 @@ const HowToUse = () => {
                       </li>
                     ))}
                   </ul>
+
+                  {/* Additional MCP Setup Options for Step 1 */}
+                  {index === 0 && (
+                    <div className="mt-6 space-y-6">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Additional MCP Setup Options:</h4>
+                      
+                      {/* Option 1: Using Code */}
+                      <div className="bg-gray-50 rounded-lg p-4">
+                        <div className="flex items-center mb-3">
+                          <Terminal className="w-5 h-5 text-blue-600 mr-2" />
+                          <h5 className="font-semibold text-gray-900">Option 1: Using Code</h5>
+                        </div>
+                        
+                        <div className="space-y-4">
+                          <div>
+                            <p className="text-sm font-medium text-gray-700 mb-2">In Windows:</p>
+                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
+                              <code>
+                                code --add-mcp '&#123;"name":"edge-figma-mcp","command":"npx","args":["-y","--registry","https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/","edge-figma-mcp@0.2.7","--stdio"],"env":&#123;"FIGMA_API_KEY":"xx-xx"&#125;&#125;'
+                              </code>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <p className="text-sm font-medium text-gray-700 mb-2">In Mac / Linux:</p>
+                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
+                              <code>
+                                code --add-mcp "&#123;\"name\":\"edge-figma-mcp\",\"command\":\"npx\",\"args\":[\"-y\",\"--registry\",\"https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/\",\"edge-figma-mcp@0.2.7\",\"--stdio\"],\"env\":&#123;\"FIGMA_API_KEY\":\"xx-xx\"&#125;&#125;"
+                              </code>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Option 2: Using Config */}
+                      <div className="bg-gray-50 rounded-lg p-4">
+                        <div className="flex items-center mb-3">
+                          <FileText className="w-5 h-5 text-purple-600 mr-2" />
+                          <h5 className="font-semibold text-gray-900">Option 2: Using Config</h5>
+                        </div>
+                        
+                        <div>
+                          <p className="text-sm font-medium text-gray-700 mb-2">In VSCode Open User Settings (JSON):</p>
+                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
+                            <pre>
+{`{
+  "mcp": {
+    "servers": {
+        "edge-figma-mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "--registry",
+                "https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/",
+                "edge-figma-mcp@0.2.7",
+                "--stdio"
+            ],
+            "env": {
+                "FIGMA_API_KEY": "x-x"
+            }
+        }
+    }
+    }
+}`}
+                            </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
