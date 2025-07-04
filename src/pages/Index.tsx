@@ -252,17 +252,6 @@ Quality: Production-ready`}
               </p>
             </Card>
 
-            {/* Feature 5: Multi-Framework Support */}
-            <Card className="border-gray-200 bg-white p-6">
-              <div className="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
-                <Layers className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Multi-Framework Support</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Support for React, Web UI, and Web UI2 out of the box. Next.js support coming soon. 
-                Generate components that work seamlessly with your preferred framework and tooling setup.
-              </p>
-            </Card>
 
             {/* Feature 6: Developer Experience */}
             <Card className="border-gray-200 bg-white p-6">
