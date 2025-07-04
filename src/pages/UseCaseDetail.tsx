@@ -119,7 +119,7 @@ const UseCaseDetail = () => {
           {/* Main Content */}
           {useCase.content && (
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="prose prose-lg max-w-none">
+              <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-blockquote:border-l-4 prose-blockquote:border-gray-300 prose-blockquote:pl-4 prose-blockquote:italic prose-ul:list-disc prose-ol:list-decimal prose-li:my-1 break-words">
                 <ReactMarkdown>
                   {useCase.content}
                 </ReactMarkdown>
