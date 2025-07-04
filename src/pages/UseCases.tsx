@@ -23,9 +23,9 @@ const UseCases = () => {
     },
     {
       id: "frontend-acceleration",
-      title: "Frontend Development Acceleration",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",
-      description: "Speed up your development workflow by automatically generating component structure."
+      title: "Edge Readingmode migration",
+      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/WechatIMG64.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL1dlY2hhdElNRzY0LmpwZyIsImlhdCI6MTc1MTYwOTEyMSwiZXhwIjoxNzgzMTQ1MTIxfQ.drycZGhL-ddW5RcxmxwFx7lf_eLdo-4SUcbCgOje73o",
+      description: "FSD helped migrate the desktop reading mode from the original Web UI to WebUI2, significantly reducing manual effort."
     },
     {
       id: "landing-pages",
