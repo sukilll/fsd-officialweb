@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Code, Palette, Zap, Globe, Smartphone, Monitor } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
 
 const UseCaseDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -169,9 +170,11 @@ const UseCaseDetail = () => {
                   {currentUseCase.title}
                 </h1>
               </div>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                {currentUseCase.description}
-              </p>
+              <div className="text-xl text-gray-600 leading-relaxed prose prose-xl max-w-none">
+                <ReactMarkdown>
+                  {currentUseCase.description}
+                </ReactMarkdown>
+              </div>
             </div>
           </div>
 
