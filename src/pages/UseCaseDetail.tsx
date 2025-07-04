@@ -10,9 +10,9 @@ const UseCaseDetail = () => {
   const navigate = useNavigate();
 
   const useCaseDetails = {
-    "edge-ios-extension": {
-      title: "Edge iOS extension",
-      image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/example.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL2V4YW1wbGUucG5nIiwiaWF0IjoxNzUxMzU3MTg0LCJleHAiOjE3ODI4OTMxODR9.LVGhimjv4VoAVWjxDQFqZVvurvvcLjhXExjtiFAsDF0",
+    "rapid-prototyping": {
+      title: "Rapid Prototyping",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop",
       icon: <Code className="w-12 h-12 text-blue-600" />,
       description: "Transform your design mockups into functional React components in minutes, not hours. Perfect for quick iterations and proof of concepts.",
       features: [
