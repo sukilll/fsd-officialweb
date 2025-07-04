@@ -175,34 +175,6 @@ const UseCaseDetail = () => {
             </div>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Features */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Features</h2>
-              <ul className="space-y-3">
-                {currentUseCase.features.map((feature, index) => (
-                  <li key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Benefits */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Benefits</h2>
-              <ul className="space-y-3">
-                {currentUseCase.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
 
           {/* CTA Section */}
           <div className="bg-black text-white rounded-lg p-8 mt-8 text-center">
