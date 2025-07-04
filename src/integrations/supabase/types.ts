@@ -59,6 +59,7 @@ export type Database = {
       }
       use_cases: {
         Row: {
+          content: string | null
           created_at: string
           description: string
           icon_name: string
@@ -68,6 +69,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          content?: string | null
           created_at?: string
           description: string
           icon_name: string
@@ -77,6 +79,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          content?: string | null
           created_at?: string
           description?: string
           icon_name?: string

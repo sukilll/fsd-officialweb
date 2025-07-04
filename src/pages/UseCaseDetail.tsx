@@ -116,6 +116,16 @@ const UseCaseDetail = () => {
             </div>
           </div>
 
+          {/* Main Content */}
+          {useCase.content && (
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <div className="prose prose-lg max-w-none">
+                <ReactMarkdown>
+                  {useCase.content}
+                </ReactMarkdown>
+              </div>
+            </div>
+          )}
 
           {/* CTA Section */}
           <div className="bg-black text-white rounded-lg p-8 mt-8 text-center">
