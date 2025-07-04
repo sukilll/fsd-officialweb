@@ -33,18 +33,6 @@ const UseCases = () => {
       image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/usecase/WechatIMG66.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c2VjYXNlL1dlY2hhdElNRzY2LmpwZyIsImlhdCI6MTc1MTYwOTQ5MCwiZXhwIjoxNzgzMTQ1NDkwfQ.Ci6cCnAUcLd8qRB4R6MXErYImDpuzDMLvO17lCO-fHQ",
       description: "FSD helped migrate the Edge history page from the original Web UI to WebUI2, significantly reducing manual effort."
     },
-    {
-      id: "mobile-first",
-      title: "Mobile-First Development",
-      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=300&fit=crop",
-      description: "Generate responsive components that work seamlessly across all device sizes."
-    },
-    {
-      id: "dashboard-panels",
-      title: "Dashboard & Admin Panels",
-      image: "https://images.unsplash.com/photo-1551038247-3d9af20df552?w=400&h=300&fit=crop",
-      description: "Convert complex dashboard designs into functional admin interfaces."
-    }
   ];
 
   const handleCardClick = (useCaseId: string) => {
