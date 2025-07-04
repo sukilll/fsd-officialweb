@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Navigation from "@/components/Navigation";
@@ -268,13 +269,19 @@ Quality: Production-ready`}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {useCases.slice(0, 8).map(useCase => <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group" onClick={() => navigate(`/use-cases/${useCase.id}`)}>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-gray-200 transition-colors">
-                    <ExternalLink className="w-6 h-6 text-gray-600" />
-                  </div>
-                  <CardTitle className="text-lg text-gray-900">{useCase.title}</CardTitle>
-                  <CardDescription className="text-gray-600">
+            {useCases.slice(0, 8).map(useCase => <Card key={useCase.id} className="border-gray-200 hover:shadow-lg transition-all duration-300 bg-white cursor-pointer group overflow-hidden" onClick={() => navigate(`/use-cases/${useCase.id}`)}>
+                <div className="relative">
+                  <AspectRatio ratio={16/9}>
+                    <img 
+                      src={useCase.image} 
+                      alt={useCase.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </AspectRatio>
+                </div>
+                <CardHeader className="p-4">
+                  <CardTitle className="text-base text-gray-900 line-clamp-2">{useCase.title}</CardTitle>
+                  <CardDescription className="text-gray-600 text-sm line-clamp-3">
                     {useCase.description}
                   </CardDescription>
                 </CardHeader>
