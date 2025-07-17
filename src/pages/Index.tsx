@@ -554,9 +554,11 @@ Quality: Production-ready`}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-black rounded-md flex items-center justify-center">
-                  <Code className="w-5 h-5 text-white" />
-                </div>
+                <img 
+                  src="https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/Silver%20Logo%20on%20Black%20Gradient.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvU2lsdmVyIExvZ28gb24gQmxhY2sgR3JhZGllbnQucG5nIiwiaWF0IjoxNzUxMzQ1NjQ0LCJleHAiOjE3ODI4ODE2NDR9.y26V7gNJ72EJUxNPXjfVlK-geTpsvMNngmw2SpTp-fU" 
+                  alt="FSD Logo" 
+                  className="h-8 w-auto rounded-md"
+                />
                 <span className="text-xl font-semibold text-gray-900">FSD</span>
               </div>
               <p className="text-gray-600 max-w-sm">
