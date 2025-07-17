@@ -94,6 +94,14 @@ const Index = () => {
     name: "Suki",
     role: "Product Manager & Designer",
     image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/image%20(5).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW1hZ2UgKDUpLnBuZyIsImlhdCI6MTc1MTM1Mjc0NywiZXhwIjoxNzgyODg4NzQ3fQ.Py7Hu_05MYaDBWEumzMoBa52l3JS_ivTCcpY3L3zS7c",
+  },{
+    name: "Junhao",
+    role: "AI Engineer",
+    image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/image%20(1).jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW1hZ2UgKDEpLmpwZWciLCJpYXQiOjE3NTI3NDg1NzEsImV4cCI6MTc4NDI4NDU3MX0.hkHr3ucRmULGGsLWf20zIRjmLO4jXuELb20o8b32sXY",
+  }, {
+    name: "YuanJi",
+    role: "AI Engineer",
+    image: "https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/Image.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvSW1hZ2UuanBlZyIsImlhdCI6MTc1Mjc0ODYyNywiZXhwIjoxNzg0Mjg0NjI3fQ.v0ScOrtzWBd1IeRLwohaziUrfVku5BkXfM1OXhJHJn4",
   }, {
     name: "Tao Li",
     role: "AI Engineer",
