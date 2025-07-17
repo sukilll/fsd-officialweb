@@ -114,23 +114,16 @@ const Index = () => {
   
   const faqs = [
     {
-      question: "How accurate is the Figma to code conversion?",
-      answer: "Our AI generates pixel-perfect code with 95%+ accuracy. Complex layouts and responsive designs are handled automatically."
-    }, {
-      question: "Which frameworks are supported?",
-      answer: "Currently we support React and WebUI components. Next.js support is coming soon, with Vue and Angular planned for the future."
-    }, {
-      question: "Can I customize the generated code?",
-      answer: "Yes! The generated code is clean, readable, and fully customizable. You can modify it just like any other code in your project."
-    }, {
-      question: "How does the VS Code integration work?",
-      answer: "Install our extension, connect your Figma account, and convert designs directly in your editor without context switching."
-    }, {
-      question: "Is there a free trial?",
-      answer: "Yes! The Pro plan includes a 14-day free trial with unlimited conversions and full feature access."
-    }, {
-      question: "What about responsive design?",
-      answer: "Our AI automatically generates responsive code using modern CSS techniques like Grid and Flexbox, with mobile-first breakpoints."
+      question: "What should I do if the setup process consistently fails?",
+      answer: "Restart VSCode. If the issue persists after multiple attempts, please contact us at fsd-agent@microsoft.com."
+    },
+    {
+      question: "Which Figma link should I copy?",
+      answer: "Ensure you copy the \"Copy link to selection\" for the specific Figma frame, not the link for the entire Figma file."
+    },
+    {
+      question: "Which frameworks are currently supported?",
+      answer: "We currently only support WebUI. For requests regarding additional framework support, please contact us at fsd-agent@microsoft.com."
     }
   ];
   
