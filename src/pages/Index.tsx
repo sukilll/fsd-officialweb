@@ -139,69 +139,69 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `
-              radial-gradient(circle at 1px 1px, rgba(156, 163, 175, 0.3) 1px, transparent 0),
-              linear-gradient(45deg, transparent 40%, rgba(156, 163, 175, 0.1) 50%, transparent 60%)
-            `,
-            backgroundSize: '24px 24px, 48px 48px'
-          }}></div>
-          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-50 blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-orange-100 to-pink-100 rounded-full opacity-50 blur-3xl"></div>
-        </div>
+      <section className="pt-32 pb-20 px-6 relative">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="outline" className="mb-8 px-4 py-2 text-sm border-gray-200 text-gray-700">
-            Microsoft FSD
+            <Figma className="w-4 h-4 mr-2" />
+            Design to Code & Migration Platform
           </Badge>
           
-          {/* Hero Logo */}
-          <div className="flex justify-center mb-8">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/Silver%20Logo%20on%20Black%20Gradient.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvU2lsdmVyIExvZ28gb24gQmxhY2sgR3JhZGllbnQucG5nIiwiaWF0IjoxNzUxMzQ1NjQ0LCJleHAiOjE3ODI4ODE2NDR9.y26V7gNJ72EJUxNPXjfVlK-geTpsvMNngmw2SpTp-fU" 
-                alt="FSD Logo" 
-                className="h-16 w-auto rounded-lg shadow-lg"
-              />
-              <span className="text-4xl font-bold text-gray-900">FSD</span>
-            </div>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
-            AI-Powered Design to Code
-            <span className="block text-gray-600">for Smarter Development</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
+            Design to Code.
+            <span className="block text-black">Migration Made Easy.</span>
           </h1>
           
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Transform your Figma designs into production-ready code and migrate Web UI to Web UI2 seamlessly with AI-driven precision.
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+            Convert Figma designs to code instantly and migrate Web UI to Web UI2 seamlessly. 
+            AI-powered conversion that works with your existing codebase—no toy demos, just real code.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button 
-              size="lg" 
-              className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium rounded-xl" 
-              onClick={() => {
-                console.log('Discover Benefits button clicked');
-                navigate('/use-cases');
-              }}
-            >
-              Discover the Benefits
+            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium" onClick={downloadExtension}>
+              Start Converting
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="px-8 py-4 text-lg font-medium border-gray-300 rounded-xl"
-              onClick={() => {
-                console.log('Watch Demo button clicked');
-                window.open('https://microsoftapc-my.sharepoint.com/personal/yuaji_microsoft_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyuaji%5Fmicrosoft%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2FFSD%20Demo%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5314bb76%2D7a84%2D4d99%2Da95f%2F1c9657eb99db&ga=1', '_blank');
-              }}
+              className="px-8 py-4 text-lg font-medium border-gray-300"
+              onClick={() => window.open('https://microsoftapc-my.sharepoint.com/personal/yuaji_microsoft_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyuaji%5Fmicrosoft%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2FFSD%20Demo%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5314bb76%2D7a84%2D4d99%2Da95f%2D1c9657eb99db&ga=1', '_blank')}
             >
               <Play className="mr-2 w-5 h-5" />
               Watch Demo
             </Button>
+          </div>
+          
+          {/* Code Preview */}
+          <div className="relative max-w-5xl mx-auto mb-20">
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+              <div className="bg-gray-900 rounded-xl p-6 text-left shadow-xl">
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span className="text-gray-400 text-sm ml-4">FSD CLI</span>
+                </div>
+                <pre className="text-green-400 text-sm font-mono">
+                {`> fsd convert --design button.figma
+
+🎨 Converting Figma design...
+🔄 Generating React component
+📝 Optimizing for production
+✅ Component ready for integration
+
+> fsd migrate --from webui --to webui2
+
+🔄 Analyzing Web UI components...
+🚀 Migrating to Web UI2
+✅ Migration completed successfully
+
+Generated: Button.tsx, Form.tsx
+Framework: React/Next.js
+Quality: Production-ready`}
+                </pre>
+              </div>
+            </div>
           </div>
 
         </div>
