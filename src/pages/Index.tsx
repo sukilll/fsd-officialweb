@@ -226,80 +226,85 @@ Quality: Production-ready`}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 gap-8">
-            {/* Feature 1: AI-Powered Figma to Code */}
-            <Card className="border-gray-200 bg-white p-6">
-              <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <Brain className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">AI-Powered Figma to Code</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Skip the manual slicing. Get pixel-perfect UI components from design to code automatically. 
-                Our advanced AI understands design patterns and generates clean, maintainable code that matches your design exactly.
-              </p>
-            </Card>
-
-            {/* Feature 2: Web UI to Web UI2 Migration */}
-            <Card className="border-gray-200 bg-white p-6 relative">
-              <div className="absolute top-4 right-4">
-                <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
-                  <Hammer className="w-4 h-4" />
-                  Building
+          <div className="space-y-8">
+            {/* First row - 2 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Feature 1: AI-Powered Figma to Code */}
+              <Card className="border-gray-200 bg-white p-6">
+                <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                  <Brain className="w-8 h-8 text-blue-600" />
                 </div>
-              </div>
-              <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                <RefreshCw className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Web UI to Web UI2 Migration</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Seamlessly upgrade your existing Web UI components to Web UI2. Our intelligent migration tool 
-                analyzes your current codebase and automatically converts components while preserving functionality and improving performance.
-              </p>
-              <Button 
-                variant="outline" 
-                className="w-full"
-                onClick={() => navigate('/webui2-waitlist')}
-              >
-                Join the waitlist
-              </Button>
-            </Card>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">AI-Powered Figma to Code</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Skip the manual slicing. Get pixel-perfect UI components from design to code automatically. 
+                  Our advanced AI understands design patterns and generates clean, maintainable code that matches your design exactly.
+                </p>
+              </Card>
 
-            {/* Feature 3: Production Quality Output */}
-            <Card className="border-gray-200 bg-white p-6">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Production Quality Output</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Clean, maintainable code you'll actually use. Push it straight to your repository. 
-                Every component follows best practices and is optimized for performance, accessibility, and maintainability.
-              </p>
-            </Card>
+              {/* Feature 2: Web UI to Web UI2 Migration */}
+              <Card className="border-gray-200 bg-white p-6 relative">
+                <div className="absolute top-4 right-4">
+                  <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <Hammer className="w-4 h-4" />
+                    Building
+                  </div>
+                </div>
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                  <RefreshCw className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Web UI to Web UI2 Migration</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  Seamlessly upgrade your existing Web UI components to Web UI2. Our intelligent migration tool 
+                  analyzes your current codebase and automatically converts components while preserving functionality and improving performance.
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => navigate('/webui2-waitlist')}
+                >
+                  Join the waitlist
+                </Button>
+              </Card>
+            </div>
 
-            {/* Feature 4: Intelligent Code Analysis */}
-            <Card className="border-gray-200 bg-white p-6">
-              <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
-                <Code className="w-8 h-8 text-indigo-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Intelligent Code Analysis</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our AI understands your existing codebase structure and patterns. Whether converting designs or migrating code, 
-                it maintains consistency with your project's architecture and coding standards.
-              </p>
-            </Card>
+            {/* Second row - 3 cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Feature 3: Production Quality Output */}
+              <Card className="border-gray-200 bg-white p-6">
+                <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                  <Shield className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Production Quality Output</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Clean, maintainable code you'll actually use. Push it straight to your repository. 
+                  Every component follows best practices and is optimized for performance, accessibility, and maintainability.
+                </p>
+              </Card>
 
+              {/* Feature 4: Intelligent Code Analysis */}
+              <Card className="border-gray-200 bg-white p-6">
+                <div className="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                  <Code className="w-8 h-8 text-indigo-600" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Intelligent Code Analysis</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Our AI understands your existing codebase structure and patterns. Whether converting designs or migrating code, 
+                  it maintains consistency with your project's architecture and coding standards.
+                </p>
+              </Card>
 
-            {/* Feature 6: Developer Experience */}
-            <Card className="border-gray-200 bg-white p-6">
-              <div className="w-16 h-16 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-pink-600" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Streamlined Developer Experience</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Integrate seamlessly with your existing workflow. Command-line tools, VS Code extensions, 
-                and API access make it easy to incorporate FSD into your development process.
-              </p>
-            </Card>
+              {/* Feature 5: Developer Experience */}
+              <Card className="border-gray-200 bg-white p-6">
+                <div className="w-16 h-16 bg-pink-100 rounded-xl flex items-center justify-center mb-6">
+                  <Zap className="w-8 h-8 text-pink-600" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-900">Streamlined Developer Experience</h3>
+                <p className="text-gray-600 leading-relaxed">
+                  Integrate seamlessly with your existing workflow. Command-line tools, VS Code extensions, 
+                  and API access make it easy to incorporate FSD into your development process.
+                </p>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
