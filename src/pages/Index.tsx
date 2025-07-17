@@ -137,7 +137,12 @@ const Index = () => {
               Start Converting
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg font-medium border-gray-300">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="px-8 py-4 text-lg font-medium border-gray-300"
+              onClick={() => window.open('https://microsoftapc-my.sharepoint.com/personal/yuaji_microsoft_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyuaji%5Fmicrosoft%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2FFSD%20Demo%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5314bb76%2D7a84%2D4d99%2Da95f%2D1c9657eb99db&ga=1', '_blank')}
+            >
               <Play className="mr-2 w-5 h-5" />
               Watch Demo
             </Button>
