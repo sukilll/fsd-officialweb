@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight, BarChart3, TrendingUp } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useState, useEffect } from "react";
@@ -12,6 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [useCases, setUseCases] = useState<any[]>([]);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
@@ -25,6 +27,26 @@ const Index = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const copyEmailToClipboard = async () => {
+    const email = 'fsd-agent@microsoft.com';
+    try {
+      await navigator.clipboard.writeText(email);
+      toast({
+        title: "邮箱已复制",
+        description: "邮箱地址已成功复制到剪贴板",
+        duration: 3000,
+      });
+    } catch (err) {
+      console.error('Failed to copy email: ', err);
+      toast({
+        title: "复制失败",
+        description: "无法复制邮箱地址，请手动复制",
+        variant: "destructive",
+        duration: 3000,
+      });
+    }
   };
 
   useEffect(() => {
@@ -470,9 +492,9 @@ Quality: Production-ready`}
                 <CardDescription className="text-gray-600 mb-4">
                   Get in touch with our customer success team
                 </CardDescription>
-                <Button className="bg-black hover:bg-gray-800 text-white">
+                <Button className="bg-black hover:bg-gray-800 text-white" onClick={copyEmailToClipboard}>
                   <Mail className="mr-2 w-4 h-4" />
-                  support@fsd.dev
+                  fsd-agent@microsoft.com
                 </Button>
               </CardHeader>
             </Card>
