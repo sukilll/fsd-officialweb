@@ -471,13 +471,9 @@ Quality: Production-ready`}
                     <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
                   <CardTitle className="text-lg text-gray-900">{member.name}</CardTitle>
-                  <CardDescription className="text-gray-600 mb-3">
+                  <CardDescription className="text-gray-600">
                     {member.role}
                   </CardDescription>
-                  <Button variant="outline" size="sm" className="mx-auto">
-                    <Mail className="mr-2 w-4 h-4" />
-                    Contact
-                  </Button>
                 </CardHeader>
               </Card>)}
           </div>
