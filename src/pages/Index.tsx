@@ -142,66 +142,44 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6 relative">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="outline" className="mb-8 px-4 py-2 text-sm border-gray-200 text-gray-700">
-            <Figma className="w-4 h-4 mr-2" />
-            Design to Code & Migration Platform
+            Microsoft FSD
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
-            Design to Code.
-            <span className="block text-black">Migration Made Easy.</span>
+          {/* 3D Icon */}
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl shadow-2xl flex items-center justify-center transform rotate-6 hover:rotate-12 transition-transform duration-300">
+                <Code className="w-12 h-12 text-white" />
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                <Sparkles className="w-3 h-3 text-white" />
+              </div>
+            </div>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-gray-900">
+            AI-Powered Design to Code
+            <span className="block text-gray-600">for Smarter Development</span>
           </h1>
           
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Convert Figma designs to code instantly and migrate Web UI to Web UI2 seamlessly. 
-            AI-powered conversion that works with your existing codebase—no toy demos, just real code.
+          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Transform your Figma designs into production-ready code and migrate Web UI to Web UI2 seamlessly with AI-driven precision.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium" onClick={downloadExtension}>
-              Start Converting
+            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium rounded-xl" onClick={downloadExtension}>
+              Discover the Benefits
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="px-8 py-4 text-lg font-medium border-gray-300"
+              className="px-8 py-4 text-lg font-medium border-gray-300 rounded-xl"
               onClick={() => window.open('https://microsoftapc-my.sharepoint.com/personal/yuaji_microsoft_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyuaji%5Fmicrosoft%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2FFSD%20Demo%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5314bb76%2D7a84%2D4d99%2Da95f%2D1c9657eb99db&ga=1', '_blank')}
             >
               <Play className="mr-2 w-5 h-5" />
               Watch Demo
             </Button>
-          </div>
-          
-          {/* Code Preview */}
-          <div className="relative max-w-5xl mx-auto mb-20">
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-              <div className="bg-gray-900 rounded-xl p-6 text-left shadow-xl">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-400 text-sm ml-4">FSD CLI</span>
-                </div>
-                <pre className="text-green-400 text-sm font-mono">
-                {`> fsd convert --design button.figma
-
-🎨 Converting Figma design...
-🔄 Generating React component
-📝 Optimizing for production
-✅ Component ready for integration
-
-> fsd migrate --from webui --to webui2
-
-🔄 Analyzing Web UI components...
-🚀 Migrating to Web UI2
-✅ Migration completed successfully
-
-Generated: Button.tsx, Form.tsx
-Framework: React/Next.js
-Quality: Production-ready`}
-                </pre>
-              </div>
-            </div>
           </div>
 
         </div>
