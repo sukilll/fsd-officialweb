@@ -211,16 +211,6 @@ Quality: Production-ready`}
             </div>
           </div>
 
-          {/* Social Proof */}
-          <div className="text-center">
-            <p className="text-gray-500 mb-6">Trusted by developers at</p>
-            <div className="flex items-center justify-center space-x-12 opacity-60">
-              <div className="text-2xl font-bold text-gray-400">GitHub</div>
-              <div className="text-2xl font-bold text-gray-400">Vercel</div>
-              <div className="text-2xl font-bold text-gray-400">Stripe</div>
-              <div className="text-2xl font-bold text-gray-400">Linear</div>
-            </div>
-          </div>
         </div>
       </section>
 
