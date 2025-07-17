@@ -146,19 +146,19 @@ const Index = () => {
             Design to Code & Migration Platform
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
-            Design to Code.
-            <span className="block text-black">Migration Made Easy.</span>
-          </h1>
-          
           {/* Product Logo */}
           <div className="flex justify-center mb-8">
             <img 
               src="/fsd-logo.png" 
               alt="FSD Logo" 
-              className="h-16 w-auto transform rotate-3 hover:rotate-12 transition-transform duration-300 ease-in-out cursor-pointer"
+              className="h-24 w-auto transform rotate-3 hover:rotate-12 transition-transform duration-300 ease-in-out cursor-pointer rounded-lg"
             />
           </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-gray-900">
+            Design to Code.
+            <span className="block text-black">Migration Made Easy.</span>
+          </h1>
           
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
             Convert Figma designs to code instantly and migrate Web UI to Web UI2 seamlessly. 
