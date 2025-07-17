@@ -21,6 +21,16 @@ const Navigation = () => {
           
           <div className="flex items-center space-x-8">
             <Link 
+              to="/" 
+              className={`transition-colors font-medium ${
+                location.pathname === '/'
+                  ? 'text-blue-600 border-b-2 border-blue-500 pb-1' 
+                  : 'text-gray-600 hover:text-gray-900'
+              }`}
+            >
+              Home
+            </Link>
+            <Link 
               to="/use-cases" 
               className={`transition-colors font-medium ${
                 location.pathname === '/use-cases'
