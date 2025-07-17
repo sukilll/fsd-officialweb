@@ -34,15 +34,15 @@ const Index = () => {
     try {
       await navigator.clipboard.writeText(email);
       toast({
-        title: "邮箱已复制",
-        description: "邮箱地址已成功复制到剪贴板",
+        title: "Email Copied",
+        description: "Email address has been successfully copied to clipboard",
         duration: 3000,
       });
     } catch (err) {
       console.error('Failed to copy email: ', err);
       toast({
-        title: "复制失败",
-        description: "无法复制邮箱地址，请手动复制",
+        title: "Copy Failed",
+        description: "Unable to copy email address, please copy manually",
         variant: "destructive",
         duration: 3000,
       });
