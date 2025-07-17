@@ -172,37 +172,6 @@ const Index = () => {
             </Button>
           </div>
           
-          {/* Code Preview */}
-          <div className="relative max-w-5xl mx-auto mb-20">
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
-              <div className="bg-gray-900 rounded-xl p-6 text-left shadow-xl">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-400 text-sm ml-4">FSD CLI</span>
-                </div>
-                <pre className="text-green-400 text-sm font-mono">
-                {`> fsd convert --design button.figma
-
-🎨 Converting Figma design...
-🔄 Generating React component
-📝 Optimizing for production
-✅ Component ready for integration
-
-> fsd migrate --from webui --to webui2
-
-🔄 Analyzing Web UI components...
-🚀 Migrating to Web UI2
-✅ Migration completed successfully
-
-Generated: Button.tsx, Form.tsx
-Framework: React/Next.js
-Quality: Production-ready`}
-                </pre>
-              </div>
-            </div>
-          </div>
 
         </div>
       </section>
