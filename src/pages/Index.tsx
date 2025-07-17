@@ -139,7 +139,19 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative">
+      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              radial-gradient(circle at 1px 1px, rgba(156, 163, 175, 0.3) 1px, transparent 0),
+              linear-gradient(45deg, transparent 40%, rgba(156, 163, 175, 0.1) 50%, transparent 60%)
+            `,
+            backgroundSize: '24px 24px, 48px 48px'
+          }}></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full opacity-50 blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-orange-100 to-pink-100 rounded-full opacity-50 blur-3xl"></div>
+        </div>
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="outline" className="mb-8 px-4 py-2 text-sm border-gray-200 text-gray-700">
             Microsoft FSD
