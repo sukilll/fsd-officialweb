@@ -505,9 +505,11 @@ Quality: Production-ready`}
               Start Converting Now
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-gray-600 text-white hover:bg-gray-900 px-8 py-4 text-lg font-medium">
-              <Github className="mr-2 w-5 h-5" />
-              View on GitHub
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium" asChild>
+              <a href="https://github.com/ai-microsoft/fsd" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 w-5 h-5" />
+                View on GitHub
+              </a>
             </Button>
           </div>
         </div>
