@@ -38,22 +38,22 @@ const WebUI2Waitlist = () => {
       if (error) {
         console.error('Error submitting to waitlist:', error);
         toast({
-          title: "提交失败",
-          description: "抱歉，提交过程中出现错误，请稍后重试。",
+          title: "Submission Failed",
+          description: "Sorry, an error occurred during submission. Please try again later.",
           variant: "destructive",
         });
       } else {
         setIsSubmitted(true);
         toast({
-          title: "提交成功",
-          description: "感谢您的申请，我们推出后会尽快通知！",
+          title: "Application Submitted",
+          description: "Thank you for your application. We'll notify you as soon as we launch!",
         });
       }
     } catch (error) {
       console.error('Error submitting to waitlist:', error);
       toast({
-        title: "提交失败",
-        description: "抱歉，提交过程中出现错误，请稍后重试。",
+        title: "Submission Failed",
+        description: "Sorry, an error occurred during submission. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -77,17 +77,17 @@ const WebUI2Waitlist = () => {
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              申请已提交！
+              Application Submitted!
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              感谢您的申请，我们推出后会尽快通知！
+              Thank you for your application. We'll notify you as soon as we launch!
             </p>
             <Button 
               onClick={() => navigate('/')}
               className="bg-black hover:bg-gray-800 text-white"
             >
               <ArrowLeft className="mr-2 w-4 h-4" />
-              返回首页
+              Back to Home
             </Button>
           </div>
         </div>
@@ -105,34 +105,34 @@ const WebUI2Waitlist = () => {
             </div>
             <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
               <Hammer className="w-4 h-4" />
-              正在开发中
+              Under Development
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Web UI2 迁移工具
+              Web UI2 Migration Tool
             </h1>
             <p className="text-xl text-gray-600">
-              加入候补名单，获得抢先体验机会
+              Join the waitlist for early access
             </p>
           </div>
 
           <Card className="border-gray-200 bg-white">
             <CardHeader>
               <CardTitle className="text-2xl text-gray-900">
-                申请抢先体验
+                Apply for Early Access
               </CardTitle>
               <CardDescription className="text-gray-600">
-                请填写以下信息，我们将在Web UI2迁移工具准备就绪时第一时间通知您。
+                Please fill out the information below and we'll notify you first when the Web UI2 migration tool is ready.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="projectDescription" className="text-gray-900 font-medium">
-                    项目介绍 *
+                    Project Description *
                   </Label>
                   <Textarea
                     id="projectDescription"
-                    placeholder="请简要介绍您的项目情况，包括当前使用的技术栈、项目规模等..."
+                    placeholder="Please briefly describe your project, including current tech stack, project scale, etc..."
                     value={formData.projectDescription}
                     onChange={(e) => handleInputChange('projectDescription', e.target.value)}
                     required
@@ -142,11 +142,11 @@ const WebUI2Waitlist = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="department" className="text-gray-900 font-medium">
-                    部门 *
+                    Department *
                   </Label>
                   <Input
                     id="department"
-                    placeholder="例如：前端开发部、产品技术部等"
+                    placeholder="e.g., Frontend Development, Product Engineering, etc."
                     value={formData.department}
                     onChange={(e) => handleInputChange('department', e.target.value)}
                     required
@@ -155,7 +155,7 @@ const WebUI2Waitlist = () => {
 
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-gray-900 font-medium">
-                    联系邮箱 *
+                    Contact Email *
                   </Label>
                   <Input
                     id="email"
@@ -175,14 +175,14 @@ const WebUI2Waitlist = () => {
                     className="flex-1"
                   >
                     <ArrowLeft className="mr-2 w-4 h-4" />
-                    返回
+                    Back
                   </Button>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
                     className="flex-1 bg-black hover:bg-gray-800 text-white"
                   >
-                    {isSubmitting ? "提交中..." : "加入候补名单"}
+                    {isSubmitting ? "Submitting..." : "Join Waitlist"}
                   </Button>
                 </div>
               </form>
@@ -191,7 +191,7 @@ const WebUI2Waitlist = () => {
 
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-500">
-              我们重视您的隐私，您的信息仅用于产品通知，不会用于其他用途。
+              We respect your privacy. Your information will only be used for product notifications and won't be used for other purposes.
             </p>
           </div>
         </div>
