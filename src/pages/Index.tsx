@@ -18,6 +18,15 @@ const Index = () => {
     y: 0
   });
 
+  const downloadExtension = () => {
+    const link = document.createElement('a');
+    link.href = 'https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/edge-fsd-agent-extension-0.3.3%20(1).vsix?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZWRnZS1mc2QtYWdlbnQtZXh0ZW5zaW9uLTAuMy4zICgxKS52c2l4IiwiaWF0IjoxNzUyNzM1MzU3LCJleHAiOjE3ODQyNzEzNTd9.MIG2-LFDD2PY_mkJGjMX4uLFjzwyXgBjeqFydFQD0Hc';
+    link.download = 'edge-fsd-agent-extension-0.3.3.vsix';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   useEffect(() => {
     fetchUseCases();
   }, []);
@@ -133,7 +142,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium">
+            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium" onClick={downloadExtension}>
               Start Converting
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -506,7 +515,7 @@ Quality: Production-ready`}
             Join thousands of developers shipping faster with AI-powered design conversion and code migration
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium">
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium" onClick={downloadExtension}>
               Start Converting Now
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
