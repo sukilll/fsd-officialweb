@@ -10,6 +10,7 @@ import BlogPost from "./pages/BlogPost";
 import UseCases from "./pages/UseCases";
 import UseCaseDetail from "./pages/UseCaseDetail";
 import HowToUse from "./pages/HowToUse";
+import WebUI2Waitlist from "./pages/WebUI2Waitlist";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/use-cases" element={<UseCases />} />
           <Route path="/use-cases/:id" element={<UseCaseDetail />} />
           <Route path="/how-to-use" element={<HowToUse />} />
+          <Route path="/webui2-waitlist" element={<WebUI2Waitlist />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight, BarChart3, TrendingUp } from "lucide-react";
+import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight, BarChart3, TrendingUp, Hammer } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -240,15 +240,28 @@ Quality: Production-ready`}
             </Card>
 
             {/* Feature 2: Web UI to Web UI2 Migration */}
-            <Card className="border-gray-200 bg-white p-6">
+            <Card className="border-gray-200 bg-white p-6 relative">
+              <div className="absolute top-4 right-4">
+                <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">
+                  <Hammer className="w-4 h-4" />
+                  Building
+                </div>
+              </div>
               <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                 <RefreshCw className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Web UI to Web UI2 Migration</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed mb-6">
                 Seamlessly upgrade your existing Web UI components to Web UI2. Our intelligent migration tool 
                 analyzes your current codebase and automatically converts components while preserving functionality and improving performance.
               </p>
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => navigate('/webui2-waitlist')}
+              >
+                Join the waitlist
+              </Button>
             </Card>
 
             {/* Feature 3: Production Quality Output */}
