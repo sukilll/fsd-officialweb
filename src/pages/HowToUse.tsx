@@ -1,19 +1,68 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download, Settings, Zap, MessageCircle, Terminal, FileText } from "lucide-react";
+import { Download, Settings, Zap, MessageCircle, Terminal, FileText, Copy, Check } from "lucide-react";
 
 const HowToUse = () => {
+  const [copiedStates, setCopiedStates] = useState<{[key: string]: boolean}>({});
+
+  const copyToClipboard = async (text: string, id: string) => {
+    console.log('Attempting to copy:', text);
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        console.log('Copied using clipboard API');
+      } else {
+        // Fallback for browsers without clipboard API or non-secure contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        textArea.remove();
+        console.log('Fallback copy successful:', successful);
+      }
+      setCopiedStates(prev => ({ ...prev, [id]: true }));
+      setTimeout(() => {
+        setCopiedStates(prev => ({ ...prev, [id]: false }));
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+      // Try one more fallback
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        console.log('Emergency fallback used');
+      } catch (fallbackErr) {
+        console.error('All copy methods failed:', fallbackErr);
+      }
+      // Still show feedback
+      setCopiedStates(prev => ({ ...prev, [id]: true }));
+      setTimeout(() => {
+        setCopiedStates(prev => ({ ...prev, [id]: false }));
+      }, 2000);
+    }
+  };
+
   const steps = [
     {
       icon: <Download className="w-8 h-8 text-blue-600" />,
       title: "Setup Figma MCP",
-      description: "Get started by downloading the extension and setting up your environment with our one-click setup process.",
+      description: "Get started by downloading the setup script and running it in Windows PowerShell for automatic environment configuration.",
       substeps: [
-        "Download extension from https://github.com/ai-microsoft/fsd/releases/download/release-extension-v0.3.1/edge-fsd-agent-extension-0.3.1.vsix",
-        "One click to Set up Environment",
-        "One click to Figma MCP Setup"
+        "Download fsd-setup.ps1 script from the website",
+        "Open Windows PowerShell",
+        "Run the fsd-setup.ps1 script to automatically configure your environment",
+        "Note: macOS support is currently being built and not yet supported"
       ]
     },
     {
@@ -87,49 +136,104 @@ const HowToUse = () => {
                   {/* Additional MCP Setup Options for Step 1 */}
                   {index === 0 && (
                     <div className="mt-6 space-y-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Additional MCP Setup Options:</h4>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-4">Automated Setup Process:</h4>
                       
-                      {/* Option 1: Using Code */}
-                      <div className="bg-gray-50 rounded-lg p-4">
+                      {/* Primary Option: Using fsd-setup.ps1 */}
+                      <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                         <div className="flex items-center mb-3">
                           <Terminal className="w-5 h-5 text-blue-600 mr-2" />
-                          <h5 className="font-semibold text-gray-900">Option 1: Using Code</h5>
+                          <h5 className="font-semibold text-gray-900">Recommended: Windows PowerShell Setup</h5>
                         </div>
                         
                         <div className="space-y-4">
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-2">In Windows:</p>
-                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
+                            <p className="text-sm font-medium text-gray-700 mb-2">Steps:</p>
+                            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                              <li>Download the fsd-setup.ps1 script from this website</li>
+                              <li>Open Windows PowerShell</li>
+                              <li>Navigate to the downloaded file location</li>
+                              <li>Set execution policy (required):</li>
+                            </ol>
+                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mt-2 relative">
+                              <button
+                                onClick={() => {
+                                  const textToCopy = 'Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass';
+                                  console.log('Copying:', textToCopy);
+                                  copyToClipboard(textToCopy, 'powershell-policy');
+                                }}
+                                className="absolute top-2 right-2 p-1 hover:bg-gray-700 rounded transition-colors"
+                                title="Copy to clipboard"
+                              >
+                                {copiedStates['powershell-policy'] ? (
+                                  <Check className="w-4 h-4 text-green-400" />
+                                ) : (
+                                  <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                                )}
+                              </button>
+                              <code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code>
+                            </div>
+                            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700" start={5}>
+                              <li>Run the script:</li>
+                            </ol>
+                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mt-2">
                               <code>
-                                code --add-mcp '&#123;"name":"edge-figma-mcp","command":"npx","args":["-y","--registry","https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/","edge-figma-mcp@0.2.7","--stdio"],"env":&#123;"FIGMA_API_KEY":"xx-xx"&#125;&#125;'
+                                <a 
+                                  href="/fsd-setup.ps1" 
+                                  download="fsd-setup.ps1" 
+                                  className="text-blue-400 hover:text-blue-300 underline"
+                                >
+                                  ./fsd-setup.ps1
+                                </a>
                               </code>
                             </div>
-                          </div>
-                          
-                          <div>
-                            <p className="text-sm font-medium text-gray-700 mb-2">In Mac / Linux:</p>
-                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
-                              <code>
-                                code --add-mcp "&#123;\"name\":\"edge-figma-mcp\",\"command\":\"npx\",\"args\":[\"-y\",\"--registry\",\"https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/\",\"edge-figma-mcp@0.2.7\",\"--stdio\"],\"env\":&#123;\"FIGMA_API_KEY\":\"xx-xx\"&#125;&#125;"
-                              </code>
-                            </div>
+                            <p className="text-xs text-gray-600 mt-2">
+                              The script will automatically install UV, keyring, vsts-npm-auth, and configure your MCP setup.
+                            </p>
                           </div>
                         </div>
                       </div>
 
-                      {/* Option 2: Using Config */}
+                      {/* macOS Notice */}
+                      <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
+                        <div className="flex items-center mb-3">
+                          <FileText className="w-5 h-5 text-amber-600 mr-2" />
+                          <h5 className="font-semibold text-gray-900">macOS Support</h5>
+                        </div>
+                        <p className="text-sm text-gray-700">
+                          macOS support is currently being built and is not yet supported. Please use a Windows environment for now.
+                        </p>
+                      </div>
+
+                      {/* Manual Option for Advanced Users */}
                       <div className="bg-gray-50 rounded-lg p-4">
                         <div className="flex items-center mb-3">
                           <FileText className="w-5 h-5 text-purple-600 mr-2" />
-                          <h5 className="font-semibold text-gray-900">Option 2: Using Config</h5>
+                          <h5 className="font-semibold text-gray-900">Manual Setup (Advanced Users)</h5>
                         </div>
                         
                         <div>
-                          <p className="text-sm font-medium text-gray-700 mb-2">In VSCode Open User Settings (JSON):</p>
-                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
-                            <pre>
-{`{
-  "mcp": {
+                          <p className="text-sm font-medium text-gray-700 mb-2">If you prefer manual configuration, first run these commands:</p>
+                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mb-3 relative">
+                            <button
+                              onClick={() => copyToClipboard('npm install -g vsts-npm-auth --registry https://registry.npmjs.com --always-auth false\nvsts-npm-auth -config .npmrc -f', 'npm-commands')}
+                              className="absolute top-2 right-2 p-1 hover:bg-gray-700 rounded transition-colors"
+                              title="Copy to clipboard"
+                            >
+                              {copiedStates['npm-commands'] ? (
+                                <Check className="w-4 h-4 text-green-400" />
+                              ) : (
+                                <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                              )}
+                            </button>
+                            <div className="space-y-1">
+                              <div>npm install -g vsts-npm-auth --registry https://registry.npmjs.com --always-auth false</div>
+                              <div>vsts-npm-auth -config .npmrc -f</div>
+                            </div>
+                          </div>
+                          <p className="text-sm font-medium text-gray-700 mb-2">Then press F1 and search for "mcp: open user configuration":</p>
+                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto relative">
+                            <button
+                              onClick={() => copyToClipboard(`{
     "servers": {
         "edge-figma-mcp": {
             "command": "npx",
@@ -137,14 +241,40 @@ const HowToUse = () => {
                 "-y",
                 "--registry",
                 "https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/",
-                "edge-figma-mcp@0.2.7",
+                "edge-figma-mcp",
                 "--stdio"
             ],
             "env": {
-                "FIGMA_API_KEY": "x-x"
+                "FIGMA_API_KEY": "your-figma-api-key"
             }
         }
     }
+}`, 'mcp-config')}
+                              className="absolute top-2 right-2 p-1 hover:bg-gray-700 rounded transition-colors"
+                              title="Copy to clipboard"
+                            >
+                              {copiedStates['mcp-config'] ? (
+                                <Check className="w-4 h-4 text-green-400" />
+                              ) : (
+                                <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                              )}
+                            </button>
+                            <pre>
+{`{
+    "servers": {
+        "edge-figma-mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "--registry",
+                "https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/",
+                "edge-figma-mcp",
+                "--stdio"
+            ],
+            "env": {
+                "FIGMA_API_KEY": "your-figma-api-key"
+            }
+        }
     }
 }`}
                             </pre>
@@ -185,12 +315,19 @@ const HowToUse = () => {
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <a 
-              href="https://github.com/ai-microsoft/fsd/releases/download/release-extension-v0.3.1/edge-fsd-agent-extension-0.3.1.vsix"
+            <button 
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/fsd-setup.ps1';
+                link.download = 'fsd-setup.ps1';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
               className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-medium transition-colors inline-block"
             >
-              Download Extension
-            </a>
+              Download Setup Script
+            </button>
           </div>
         </div>
       </div>

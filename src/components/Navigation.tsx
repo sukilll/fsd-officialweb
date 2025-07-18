@@ -1,10 +1,11 @@
 
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
@@ -62,14 +63,7 @@ const Navigation = () => {
             </Link>
             <Button 
               className="bg-black hover:bg-gray-800 text-white"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = 'https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/edge-fsd-agent-extension-0.3.3%20(1).vsix?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZWRnZS1mc2QtYWdlbnQtZXh0ZW5zaW9uLTAuMy4zICgxKS52c2l4IiwiaWF0IjoxNzUyNzM1MzU3LCJleHAiOjE3ODQyNzEzNTd9.MIG2-LFDD2PY_mkJGjMX4uLFjzwyXgBjeqFydFQD0Hc';
-                link.download = 'edge-fsd-agent-extension-0.3.3.vsix';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
+              onClick={() => navigate('/how-to-use')}
             >
               Start now
             </Button>

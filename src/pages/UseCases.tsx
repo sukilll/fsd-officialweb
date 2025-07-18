@@ -20,6 +20,7 @@ const UseCases = () => {
       const { data, error } = await supabase
         .from('use_cases')
         .select('*')
+        .neq('id', 'frontend-acceleration')
         .order('created_at', { ascending: true });
 
       if (error) throw error;
@@ -87,7 +88,10 @@ const UseCases = () => {
             <p className="text-gray-600 mb-8">
               See how FSD can accelerate your development workflow today
             </p>
-            <button className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+            <button 
+              onClick={() => navigate('/how-to-use')}
+              className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            >
               Try FSD Now
             </button>
           </div>
