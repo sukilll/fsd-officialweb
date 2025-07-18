@@ -1,10 +1,58 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Download, Settings, Zap, MessageCircle, Terminal, FileText } from "lucide-react";
+import { Download, Settings, Zap, MessageCircle, Terminal, FileText, Copy, Check } from "lucide-react";
 
 const HowToUse = () => {
+  const [copiedStates, setCopiedStates] = useState<{[key: string]: boolean}>({});
+
+  const copyToClipboard = async (text: string, id: string) => {
+    console.log('Attempting to copy:', text);
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        console.log('Copied using clipboard API');
+      } else {
+        // Fallback for browsers without clipboard API or non-secure contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        textArea.remove();
+        console.log('Fallback copy successful:', successful);
+      }
+      setCopiedStates(prev => ({ ...prev, [id]: true }));
+      setTimeout(() => {
+        setCopiedStates(prev => ({ ...prev, [id]: false }));
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+      // Try one more fallback
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        console.log('Emergency fallback used');
+      } catch (fallbackErr) {
+        console.error('All copy methods failed:', fallbackErr);
+      }
+      // Still show feedback
+      setCopiedStates(prev => ({ ...prev, [id]: true }));
+      setTimeout(() => {
+        setCopiedStates(prev => ({ ...prev, [id]: false }));
+      }, 2000);
+    }
+  };
+
   const steps = [
     {
       icon: <Download className="w-8 h-8 text-blue-600" />,
@@ -104,6 +152,27 @@ const HowToUse = () => {
                               <li>Download the fsd-setup.ps1 script from this website</li>
                               <li>Open Windows PowerShell</li>
                               <li>Navigate to the downloaded file location</li>
+                              <li>Set execution policy (required):</li>
+                            </ol>
+                            <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mt-2 relative">
+                              <button
+                                onClick={() => {
+                                  const textToCopy = 'Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass';
+                                  console.log('Copying:', textToCopy);
+                                  copyToClipboard(textToCopy, 'powershell-policy');
+                                }}
+                                className="absolute top-2 right-2 p-1 hover:bg-gray-700 rounded transition-colors"
+                                title="Copy to clipboard"
+                              >
+                                {copiedStates['powershell-policy'] ? (
+                                  <Check className="w-4 h-4 text-green-400" />
+                                ) : (
+                                  <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                                )}
+                              </button>
+                              <code>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass</code>
+                            </div>
+                            <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700" start={5}>
                               <li>Run the script:</li>
                             </ol>
                             <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mt-2">
@@ -144,14 +213,52 @@ const HowToUse = () => {
                         
                         <div>
                           <p className="text-sm font-medium text-gray-700 mb-2">If you prefer manual configuration, first run these commands:</p>
-                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mb-3">
+                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto mb-3 relative">
+                            <button
+                              onClick={() => copyToClipboard('npm install -g vsts-npm-auth --registry https://registry.npmjs.com --always-auth false\nvsts-npm-auth -config .npmrc -f', 'npm-commands')}
+                              className="absolute top-2 right-2 p-1 hover:bg-gray-700 rounded transition-colors"
+                              title="Copy to clipboard"
+                            >
+                              {copiedStates['npm-commands'] ? (
+                                <Check className="w-4 h-4 text-green-400" />
+                              ) : (
+                                <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                              )}
+                            </button>
                             <div className="space-y-1">
                               <div>npm install -g vsts-npm-auth --registry https://registry.npmjs.com --always-auth false</div>
                               <div>vsts-npm-auth -config .npmrc -f</div>
                             </div>
                           </div>
                           <p className="text-sm font-medium text-gray-700 mb-2">Then press F1 and search for "mcp: open user configuration":</p>
-                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto">
+                          <div className="bg-gray-900 text-green-400 p-3 rounded-md text-xs font-mono overflow-x-auto relative">
+                            <button
+                              onClick={() => copyToClipboard(`{
+    "servers": {
+        "edge-figma-mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "--registry",
+                "https://pkgs.dev.azure.com/microsoft/Edge/_packaging/edge_webui/npm/registry/",
+                "edge-figma-mcp",
+                "--stdio"
+            ],
+            "env": {
+                "FIGMA_API_KEY": "your-figma-api-key"
+            }
+        }
+    }
+}`, 'mcp-config')}
+                              className="absolute top-2 right-2 p-1 hover:bg-gray-700 rounded transition-colors"
+                              title="Copy to clipboard"
+                            >
+                              {copiedStates['mcp-config'] ? (
+                                <Check className="w-4 h-4 text-green-400" />
+                              ) : (
+                                <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+                              )}
+                            </button>
                             <pre>
 {`{
     "servers": {
