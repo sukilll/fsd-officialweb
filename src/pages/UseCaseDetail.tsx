@@ -133,7 +133,10 @@ const UseCaseDetail = () => {
             <p className="text-gray-300 mb-6">
               Transform your design workflow with FSD today
             </p>
-            <Button className="bg-white text-black hover:bg-gray-100">
+            <Button 
+              onClick={() => navigate('/how-to-use')}
+              className="bg-white text-black hover:bg-gray-100"
+            >
               Try FSD Now
             </Button>
           </div>
