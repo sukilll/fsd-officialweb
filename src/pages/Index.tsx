@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight, BarChart3, TrendingUp, Hammer } from "lucide-react";
+import { ArrowRight, Code, Zap, Brain, Shield, Sparkles, CheckCircle, Star, Github, Play, Figma, FileCode, Layers, MonitorSpeaker, Mail, User, ExternalLink, Download, BookOpen, MessageCircle, RefreshCw, ArrowUpRight, BarChart3, TrendingUp, Hammer, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -15,6 +15,7 @@ const Index = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [useCases, setUseCases] = useState<any[]>([]);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
@@ -22,11 +23,19 @@ const Index = () => {
 
   const downloadExtension = () => {
     const link = document.createElement('a');
-    link.href = 'https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/edge-fsd-agent-extension-0.3.3%20(1).vsix?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZWRnZS1mc2QtYWdlbnQtZXh0ZW5zaW9uLTAuMy4zICgxKS52c2l4IiwiaWF0IjoxNzUyNzM1MzU3LCJleHAiOjE3ODQyNzEzNTd9.MIG2-LFDD2PY_mkJGjMX4uLFjzwyXgBjeqFydFQD0Hc';
-    link.download = 'edge-fsd-agent-extension-0.3.3.vsix';
+    link.href = '/fsd-setup.ps1';
+    link.download = 'fsd-setup.ps1';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const openVideoModal = () => {
+    setIsVideoModalOpen(true);
+  };
+
+  const closeVideoModal = () => {
+    setIsVideoModalOpen(false);
   };
 
   const copyEmailToClipboard = async () => {
@@ -50,10 +59,6 @@ const Index = () => {
   };
 
   useEffect(() => {
-    fetchUseCases();
-  }, []);
-
-  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX,
@@ -62,6 +67,20 @@ const Index = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isVideoModalOpen) {
+        closeVideoModal();
+      }
+    };
+    window.addEventListener('keydown', handleEscKey);
+    return () => window.removeEventListener('keydown', handleEscKey);
+  }, [isVideoModalOpen]);
+
+  useEffect(() => {
+    fetchUseCases();
   }, []);
 
   const fetchUseCases = async () => {
@@ -174,7 +193,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium" onClick={downloadExtension}>
+            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium" onClick={() => navigate('/how-to-use')}>
               Start Converting
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -182,7 +201,7 @@ const Index = () => {
               size="lg" 
               variant="outline" 
               className="px-8 py-4 text-lg font-medium border-gray-300"
-              onClick={() => window.open('https://microsoftapc-my.sharepoint.com/personal/yuaji_microsoft_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fyuaji%5Fmicrosoft%5Fcom%2FDocuments%2FMicrosoft%20Teams%20Chat%20Files%2FFSD%20Demo%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E5314bb76%2D7a84%2D4d99%2Da95f%2D1c9657eb99db&ga=1', '_blank')}
+              onClick={openVideoModal}
             >
               <Play className="mr-2 w-5 h-5" />
               Watch Demo
@@ -520,7 +539,7 @@ const Index = () => {
             Join thousands of developers shipping faster with AI-powered design conversion and code migration
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium" onClick={downloadExtension}>
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium" onClick={() => navigate('/how-to-use')}>
               Start Converting Now
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -537,8 +556,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-12 px-6 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            <div className="md:col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
               <div className="flex items-center space-x-2 mb-4">
                 <img 
                   src="https://xgforkvofgdxvngaqalj.supabase.co/storage/v1/object/sign/web/Silver%20Logo%20on%20Black%20Gradient.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hMGE0YTk1My0wMmMxLTRmYTMtOGM2OS1lNmNlMzQwZDA1ZGIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvU2lsdmVyIExvZ28gb24gQmxhY2sgR3JhZGllbnQucG5nIiwiaWF0IjoxNzUxMzQ1NjQ0LCJleHAiOjE3ODI4ODE2NDR9.y26V7gNJ72EJUxNPXjfVlK-geTpsvMNngmw2SpTp-fU" 
@@ -553,46 +572,63 @@ const Index = () => {
             </div>
             
             <div>
-              <h3 className="font-semibold mb-4 text-gray-900">Product</h3>
+              <h3 className="font-semibold mb-4 text-gray-900">Quick Links</h3>
               <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">API</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4 text-gray-900">Company</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">About</a></li>
                 <li><a href="/blog" className="hover:text-gray-900 transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Contact</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold mb-4 text-gray-900">Support</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Community</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Status</a></li>
-                <li><a href="#" className="hover:text-gray-900 transition-colors">Security</a></li>
+                <li><a href="https://github.com/ai-microsoft/fsd" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">GitHub</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500">&copy; 2024 FSD. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Privacy</a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Terms</a>
-              <a href="#" className="text-gray-400 hover:text-gray-600 transition-colors">Cookies</a>
-            </div>
+          <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+            <p className="text-gray-500">&copy; 2025 FSD. All rights reserved.</p>
           </div>
         </div>
       </footer>
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Blurred backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={closeVideoModal}
+          />
+          
+          {/* Modal content */}
+          <div className="relative z-10 bg-white rounded-2xl shadow-2xl max-w-4xl w-full mx-4 overflow-hidden">
+            {/* Close button */}
+            <button
+              onClick={closeVideoModal}
+              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/20 hover:bg-black/40 transition-colors"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+            
+            {/* Video container */}
+            <div className="relative aspect-video">
+              <video
+                className="w-full h-full object-cover"
+                controls
+                autoPlay
+                muted
+                playsInline
+              >
+                <source src="/fsd-demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            
+            {/* Video title */}
+            <div className="p-6 bg-white">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">FSD Demo</h3>
+              <p className="text-gray-600">
+                Watch how FSD converts Figma designs to production-ready code in real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>;
 };
 
