@@ -94,10 +94,63 @@ const HowToUse = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               How to Use FSD
             </h1>
+            <p className="text-xl text-gray-600 mb-8">
+              Get started quickly with our step-by-step guide and 1-minute video tutorial
+            </p>
           </div>
+
+          {/* Video Tutorial Section */}
+          <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 mb-12">
+            <CardHeader>
+              <div className="flex items-center justify-center space-x-3 mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <CardTitle className="text-2xl text-gray-900 text-center">
+                  🎥 1-Minute Quick Start Guide
+                </CardTitle>
+              </div>
+              <CardDescription className="text-center text-gray-700 text-lg">
+                Watch this quick video to see FSD in action and understand the workflow
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex justify-center">
+              <div className="w-full max-w-2xl">
+                <div className="relative bg-black rounded-xl overflow-hidden shadow-lg aspect-video">
+                  <video 
+                    controls 
+                    className="w-full h-full object-cover"
+                    preload="metadata"
+                  >
+                    <source src="/fsd-1min-guidance.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="text-center mt-6">
+                  <p className="text-sm text-gray-600">
+                    💡 <strong>Pro tip:</strong> Follow along with the video while reading the detailed steps below
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Steps */}
           <div className="space-y-8">
+            {/* Quick Reference Banner */}
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
+              <div className="flex items-center space-x-2 mb-2">
+                <Zap className="w-5 h-5 text-yellow-600" />
+                <h3 className="font-semibold text-yellow-800">Quick Reference</h3>
+              </div>
+              <p className="text-yellow-700 text-sm">
+                Already watched the video? Here's a quick summary: 
+                <span className="font-mono bg-yellow-100 px-2 py-1 rounded ml-2 text-xs">
+                  Setup → Create Project → Start Development with Figma link
+                </span>
+              </p>
+            </div>
+
             {steps.map((step, index) => (
               <Card key={index} className="bg-white border-gray-200">
                 <CardHeader>
